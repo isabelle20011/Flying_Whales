@@ -14,8 +14,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float m_MoveSpeedMultiplier = 1f;
     [SerializeField] float m_AnimSpeedMultiplier = 1f;
     [SerializeField] bool  main;
+    [SerializeField] Camera m_Camera;
 
-    Camera m_Camera;
     Rigidbody   m_Rigidbody;
     CharacterController m_Controller;
     Animator    m_Animator;
@@ -34,7 +34,6 @@ public class PlayerMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        m_Camera = Camera.main;
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
         m_Controller = GetComponent<CharacterController>();
@@ -158,3 +157,123 @@ public class PlayerMovement : MonoBehaviour
     return m_Attack || m_sprint;
     }
 }
+
+/*
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CharacterMovement : MonoBehaviour
+{
+    public float moveSpeed = 15f;
+    public float rotateSpeed = 5f;
+    public float JumpHeight = 8f;
+    public float DashDistance = 10f;
+    public Vector3 Drag = new Vector3(5f, 10f, 5f);
+    public float gravityScale = 1f;
+    public Camera m_camera;
+
+    private CharacterController m_controller;
+    private Rigidbody m_rigidbody;
+    private Animator m_animator;
+
+    private Vector3 move;
+    private bool m_jump;
+    private bool m_dance;
+
+
+    void Start()
+    {
+        m_controller = GetComponent<CharacterController>();
+        m_animator = GetComponent<Animator>();
+
+        //m_rigidbody = GetComponent<Rigidbody>();
+        //m_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+    }
+
+    void Update()
+    {
+        move = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, move.y, Input.GetAxis("Vertical") * moveSpeed);
+        //Vector3 movement = m_camera.transform.TransformDirection(move).normalized;
+       // move *= moveSpeed;
+
+        //Move();
+        Jump();
+        //Dash();
+        Gravity();
+        Rotate();
+        Dance();
+
+        // Apply move vector
+        //move.x /= 1 + Drag.x * Time.deltaTime;
+        //move.y /= 1 + Drag.y * Time.deltaTime;
+        //move.z /= 1 + Drag.z * Time.deltaTime;
+        m_controller.Move(move * Time.deltaTime);
+
+        // send input and other state parameters to the animator
+        UpdateAnimator();
+
+    }
+
+    // Calculate move
+    private void Move()
+    {
+        //move = m_camera.transform.TransformDirection(move).normalized * moveSpeed;
+    }
+
+    // Apply rotation
+    private void Rotate()
+    {
+        transform.Rotate(0f, Input.GetAxis("Horizontal") * rotateSpeed, 0f);
+    }
+
+    // Adds gravity to character controller
+    private void Gravity()
+    {
+        move.y += (Physics.gravity.y * gravityScale * Time.deltaTime);
+        if (m_controller.isGrounded && m_jump)
+        {
+            //m_jump = false;
+        }
+    }
+
+    // makes character jump if on ground and press space
+    private void Jump()
+    {
+        if (Input.GetButtonDown("Jump") && m_controller.isGrounded)
+        {
+            //move.y = JumpHeight;
+            m_jump = true;
+        }
+    }
+
+    // makes character dash if press left alt
+    private void Dash()
+    {
+        if (Input.GetButtonDown("Dash"))
+        {
+            Debug.Log("Dash");
+            move += Vector3.Scale(transform.forward, DashDistance * new Vector3((Mathf.Log(1f / (Time.deltaTime * Drag.x + 1)) / -Time.deltaTime), 0,
+                                        (Mathf.Log(1f / (Time.deltaTime * Drag.z + 1)) / -Time.deltaTime)));
+
+
+        }
+    }
+
+    private void Dance()
+    {
+        if (Input.GetKeyDown("k"))
+        {
+            m_dance = !m_dance;
+        }
+    }
+
+    private void UpdateAnimator()
+    {
+        m_animator.SetFloat("Walking", move.z, 0.1f, Time.deltaTime);
+        m_animator.SetBool("Jump", m_jump);
+        m_animator.SetBool("Dance", m_dance);
+    }
+}
+
+ */
