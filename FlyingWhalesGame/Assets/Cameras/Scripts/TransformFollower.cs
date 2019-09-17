@@ -3,10 +3,10 @@ using System.Collections;
 
 public class TransformFollower : MonoBehaviour
 {
+    [SerializeField] private bool lookAt = true;
     [SerializeField] private Transform target;
     [SerializeField] private Vector3 offsetPosition;
     [SerializeField] private Space offsetPositionSpace = Space.Self;
-    [SerializeField] private bool lookAt = true;
     [SerializeField] private bool m_AutoTargetPlayer = true;  // Whether the rig should automatically target the player.
 
     protected virtual void Start()
@@ -71,10 +71,6 @@ public class TransformFollower : MonoBehaviour
         if (lookAt)
         {
             transform.LookAt(target);
-        }
-        else
-        {
-            transform.rotation = target.rotation;
         }
     }
 }
