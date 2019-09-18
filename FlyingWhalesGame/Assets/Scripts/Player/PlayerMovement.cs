@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     private CharacterController m_Controller;
     private Animator            m_Animator;
+    private Rigidbody           m_Rigidbody;
 
     private float   m_CapsuleHeight;
     private Vector3 m_CapsuleCenter;
