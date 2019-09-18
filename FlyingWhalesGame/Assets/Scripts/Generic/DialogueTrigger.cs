@@ -10,7 +10,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if(Input.GetButtonDown("Interact"))
         {
-            TriggerDialogue();
+            TriggerDialogue(); //you got to 7:19
         }
     }
     public void TriggerDialogue()
