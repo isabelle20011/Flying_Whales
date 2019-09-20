@@ -84,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
 
         m_InputTurn = Mathf.Lerp(m_InputTurn, h, Time.deltaTime * 5f);
 
-        if (m_InputForward < 0f)
+        if (m_InputForward < -0.01f)
             m_InputTurn = -m_InputTurn;
     }
 
