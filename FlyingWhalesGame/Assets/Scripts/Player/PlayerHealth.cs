@@ -122,8 +122,9 @@ public class PlayerHealth : MonoBehaviour
         //playerAudio.Play();
 
         // Turn off the movement and shooting scripts.
-        playerMovement.enabled = false;
         Destroy(gameObject, 2f);
+        GetComponent<Rigidbody>().isKinematic = true;
+        //playerMovement.enabled = false;
     }
 
 
@@ -133,6 +134,11 @@ public class PlayerHealth : MonoBehaviour
 
         if (onHealthChangedCallback != null)
             onHealthChangedCallback.Invoke();
+    }
+
+    public bool PlayerAlive()
+    {
+        return !isDead;
     }
 }
 
