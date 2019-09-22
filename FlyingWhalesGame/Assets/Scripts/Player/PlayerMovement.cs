@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     private CharacterController m_Controller;
     private Animator            m_Animator;
+    private Rigidbody           m_Rigidbody;
 
     private float   m_CapsuleHeight;
     private Vector3 m_CapsuleCenter;
@@ -83,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
 
         m_InputTurn = Mathf.Lerp(m_InputTurn, h, Time.deltaTime * 5f);
 
-        if (m_InputForward < 0f)
+        if (m_InputForward < -0.01f)
             m_InputTurn = -m_InputTurn;
     }
 
