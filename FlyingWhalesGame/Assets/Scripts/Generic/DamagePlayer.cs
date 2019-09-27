@@ -14,7 +14,7 @@ public class DamagePlayer : MonoBehaviour
     float timer;                                // Timer for counting up to the next attack.
 
 
-    void Awake()
+    void Start()
     {
         // Setting up the references.
         player = GameObject.FindGameObjectWithTag("Player");
