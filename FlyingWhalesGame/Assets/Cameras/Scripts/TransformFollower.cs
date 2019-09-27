@@ -5,7 +5,7 @@ public class TransformFollower : MonoBehaviour
 {
     [SerializeField] private bool lookAt = true;
     [SerializeField] private Transform target;
-    [SerializeField] private Vector3 offsetPosition;
+    [SerializeField] private Vector3 offsetPosition = new Vector3(0, 0, 0);
     [SerializeField] private Space offsetPositionSpace = Space.Self;
     [SerializeField] private bool m_AutoTargetPlayer = true;  // Whether the rig should automatically target the player.
 
