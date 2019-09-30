@@ -20,8 +20,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody           m_Rigidbody;
     private SphereCollider      m_SphereCollider;
     [SerializeField]
-    private DialogueTrigger     m_characterDiag;
-    private DialogueManager     m_DialogueManager;
+    private DialogueTrigger     m_characterDiagTrigger;
+    public DialogueManager     m_DialogueManager;
 
     private float   m_CapsuleHeight;
     private Vector3 m_CapsuleCenter;
@@ -219,18 +219,14 @@ public class PlayerMovement : MonoBehaviour
         //we can add another if statement here for a layer or tag of game objects you can talk to so we don't do component calls all the time
         if (other.tag == "Talker")
         {
-            if (m_characterDiag == null)
+            if (m_characterDiagTrigger == null)
             {
-                Debug.Log("HI");
-                m_characterDiag = other.GetComponent<DialogueTrigger>();
-            }
-
-            if (Input.GetButtonDown("Interact") && m_DialogueManager.inConvo == false)
+                Debug.Log("Hi!");
+                m_characterDiagTrigger = other.GetComponent<DialogueTrigger>();
+            } else if (Input.GetButtonDown("Interact") && !m_DialogueManager.inConvo)
             {
-                m_characterDiag.TriggerDialogue();
-            }
-
-            if(Input.GetButtonDown("Interact") && m_DialogueManager.inConvo)
+                m_characterDiagTrigger.TriggerDialogue();
+            } else if(Input.GetButtonDown("Interact") && m_DialogueManager.inConvo)
             {
                 m_DialogueManager.DisplayNextSentence();
             }
@@ -241,7 +237,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.tag == "Talker")
         { 
-            m_characterDiag = null;
+            m_characterDiagTrigger = null;
         }
     }
 }
