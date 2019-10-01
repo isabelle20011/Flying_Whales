@@ -18,10 +18,6 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController m_Controller;
     private Animator            m_Animator;
     private Rigidbody           m_Rigidbody;
-    private SphereCollider      m_SphereCollider;
-    [SerializeField]
-    private DialogueTrigger     m_characterDiagTrigger;
-    public DialogueManager     m_DialogueManager;
 
     private float   m_CapsuleHeight;
     private Vector3 m_CapsuleCenter;
@@ -44,8 +40,6 @@ public class PlayerMovement : MonoBehaviour
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
         m_Controller = GetComponent<CharacterController>();
-        m_SphereCollider = GetComponent<SphereCollider>();
-        m_DialogueManager = FindObjectOfType<DialogueManager>();
 
         m_CapsuleHeight = m_Controller.height;
         m_CapsuleCenter = m_Controller.center;
@@ -213,31 +207,31 @@ public class PlayerMovement : MonoBehaviour
         return m_Attack || m_Sprint || m_Dash;
     }
 
-    private void OnTriggerStay(Collider other)
-    {
+    //private void OnTriggerStay(Collider other)
+    //{
 
-        //we can add another if statement here for a layer or tag of game objects you can talk to so we don't do component calls all the time
-        if (other.tag == "Talker")
-        {
-            if (m_characterDiagTrigger == null)
-            {
-                Debug.Log("Hi!");
-                m_characterDiagTrigger = other.GetComponent<DialogueTrigger>();
-            } else if (Input.GetButtonDown("Interact") && !m_DialogueManager.inConvo)
-            {
-                m_characterDiagTrigger.TriggerDialogue();
-            } else if(Input.GetButtonDown("Interact") && m_DialogueManager.inConvo)
-            {
-                m_DialogueManager.DisplayNextSentence();
-            }
-        }
-    }
+    //    //we can add another if statement here for a layer or tag of game objects you can talk to so we don't do component calls all the time
+    //    if (other.tag == "Talker")
+    //    {
+    //        if (m_characterDiagTrigger == null)
+    //        {
+    //            Debug.Log("Hi!");
+    //            m_characterDiagTrigger = other.GetComponent<DialogueTrigger>();
+    //        } else if (Input.GetButtonDown("Interact") && !m_DialogueManager.inConvo)
+    //        {
+    //            m_characterDiagTrigger.TriggerDialogue();
+    //        } else if(Input.GetButtonDown("Interact") && m_DialogueManager.inConvo)
+    //        {
+    //            m_DialogueManager.DisplayNextSentence();
+    //        }
+    //    }
+    //}
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Talker")
-        { 
-            m_characterDiagTrigger = null;
-        }
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.tag == "Talker")
+    //    { 
+    //        m_characterDiagTrigger = null;
+    //    }
+    //}
 }
