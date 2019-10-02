@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 //made by Daniel Otaigbe
 public class DialogueManager : MonoBehaviour
 {
+    public Text nameText;
+    public Text dialogueText;
+
     private Queue<string> sentences; //works like a list, but more restricted. It's FIFO (First in, First Out) so new sentences are loaded from the end of the queu
     public bool inConvo = false;
 
@@ -15,7 +19,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        Debug.Log("Starting conversation with " + dialogue.name);
+        nameText.text = dialogue.name;
 
         sentences.Clear();
 
@@ -37,8 +41,7 @@ public class DialogueManager : MonoBehaviour
         }
         inConvo = true;
         string sentence = sentences.Dequeue(); //removes and returns the first object of the queue
-        Debug.Log(sentence);
-
+        dialogueText.text = sentence;
     }
 
     void EndDialogue()
