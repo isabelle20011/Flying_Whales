@@ -20,7 +20,7 @@ namespace GameManager
             {
                 Debug.LogWarning("player prefab not set");
             }
-            DontDestroyOnLoad(SpawnPoint.gameObject);
+            
         }
 
         private void OnDisable()

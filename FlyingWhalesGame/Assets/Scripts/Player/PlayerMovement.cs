@@ -4,7 +4,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CharacterController))]
-[RequireComponent(typeof(Animator))]
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float   walkingSpeed = 4f;
@@ -19,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator            m_Animator;
     private Rigidbody           m_Rigidbody;
 
-    private float   m_CapsuleHeight;
+    private float   m_CapsuleRadius;
     private Vector3 m_CapsuleCenter;
     private Vector3 m_Move;
     private float   m_moveSpeed;
@@ -31,17 +30,17 @@ public class PlayerMovement : MonoBehaviour
     private bool  m_Crouching;
     private bool  m_Sprint;
     private bool  m_Attack;
-    private bool  m_Jump;
+    public bool  m_Jump;
     private bool  m_Dash;
 
     // Use this for initialization
     private void Start()
     {
-        m_Animator = GetComponent<Animator>();
+        m_Animator = GetComponentInChildren<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
         m_Controller = GetComponent<CharacterController>();
 
-        m_CapsuleHeight = m_Controller.height;
+        m_CapsuleRadius = m_Controller.radius;
         m_CapsuleCenter = m_Controller.center;
 
         m_Move = new Vector3(0f, 0f, 0f);
@@ -69,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
         m_Dash = false;
         m_Attack = false; // change to animation time
+        
 
     }
 
@@ -90,19 +90,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && !m_Jump)
         {
             Debug.Log("Jump");
             m_Move.y = jumpHeight;
             m_Jump = true;
-            StartCoroutine(FinishJump());
         }
-    }
-
-    IEnumerator FinishJump()
-    {
-        yield return new WaitForSeconds(0.5f);
-        m_Jump = false;
     }
 
     private void Sprint()
@@ -147,24 +140,24 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("Crouch");
             if (m_Crouching) return;
-            m_Controller.height /= 2f;
-            m_Controller.center /= 2f;
+            m_Controller.radius /= 2f;
+            //m_Controller.center /= 2f;
             m_Crouching = true;
         }
         else
         {
-            //Ray crouchRay = new Ray(m_Rigidbody.position + Vector3.up * m_Controller.radius * 0.5f, Vector3.up);
-            //float crouchRayLength = m_CapsuleHeight - m_Controller.radius * 0.5f;
-            //if (Physics.SphereCast(crouchRay, m_Controller.radius * 0.5f, crouchRayLength, Physics.AllLayers, QueryTriggerInteraction.Ignore))
-            //{
-            //    Debug.Log("OOPS");
-            //    m_Crouching = true;
-            //    return;
-            //}
-            if (m_Controller.height != m_CapsuleHeight && m_Crouching)
+            Ray crouchRay = new Ray(m_Rigidbody.position + Vector3.up * m_Controller.radius * 0.5f, Vector3.up);
+            float crouchRayLength = m_CapsuleRadius * 0.5f;
+            if (Physics.SphereCast(crouchRay, m_Controller.radius * 0.5f, crouchRayLength, Physics.AllLayers, QueryTriggerInteraction.Ignore) && m_Crouching)
             {
-                m_Controller.height = m_CapsuleHeight;
-                m_Controller.center = m_CapsuleCenter;
+                Debug.Log("OOPS");
+                m_Crouching = true;
+                return;
+            }
+            else if (m_Controller.radius != m_CapsuleRadius && m_Crouching)
+            {
+                m_Controller.radius = m_CapsuleRadius;
+                //m_Controller.center = m_CapsuleCenter;
                 m_Crouching = false;
             }
         }
@@ -205,5 +198,11 @@ public class PlayerMovement : MonoBehaviour
     {
         //change it to check animation instead
         return m_Attack || m_Sprint || m_Dash;
+    }
+
+
+    public void toggleJump()
+    {
+        m_Jump = false;
     }
 }
