@@ -10,7 +10,7 @@ namespace GameManager
 
         public GameObject menu;
 
-        private void Start()
+        private void OnEnable()
         {
             //ToggleMenu();
             DontDestroyOnLoad(menu);

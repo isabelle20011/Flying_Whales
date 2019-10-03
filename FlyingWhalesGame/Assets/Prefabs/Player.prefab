@@ -1613,8 +1613,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkingSpeed: 8
-  sprintingSpeed: 20
-  turnSpeed: 4
+  sprintingSpeed: 15
+  turnSpeed: 2.5
   jumpHeight: 17
   gravityScale: 5
   DashDistance: 10

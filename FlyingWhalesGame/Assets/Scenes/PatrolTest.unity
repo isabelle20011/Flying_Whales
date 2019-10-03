@@ -119,7 +119,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: bca0c2265e923484190f2efb0dfec733, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 2bc87315a91fab543bdb7946e03fc932, type: 2}
 --- !u!1 &70483098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1077,6 +1077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdad9ba31faf94cd08d15ef6c342e78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patrol: 1
   patrolSpots:
   - {fileID: 70483098}
   - {fileID: 1889407879}

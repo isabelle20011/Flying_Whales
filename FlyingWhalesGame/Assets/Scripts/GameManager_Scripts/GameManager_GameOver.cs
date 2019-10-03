@@ -8,7 +8,7 @@ namespace GameManager
     {
         public GameObject panelGameOver;
 
-        private void Start()
+        private void OnEnable()
         {
             GameManager_Master.Instance.GameOverEvent += GameOver;
             DontDestroyOnLoad(panelGameOver);
