@@ -8,7 +8,7 @@ namespace GameManager
     {
 
         private bool isPaused;
-        private void Start()
+        private void OnEnable()
         {
             GameManager_Master.Instance.MenuToggleEvent += TogglePause;
         }
@@ -20,7 +20,6 @@ namespace GameManager
 
         private void TogglePause()
         {
-            print("ran2");
             if (isPaused)
             {
                 Time.timeScale = 1;

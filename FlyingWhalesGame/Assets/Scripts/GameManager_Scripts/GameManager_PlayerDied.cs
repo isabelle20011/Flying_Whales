@@ -9,7 +9,7 @@ namespace GameManager
     {
         public TextMeshProUGUI LivesUI;
 
-        private void Start()
+        private void OnEnable()
         {
             GameManager_Master.Instance.PlayerDiedEvent += PlayerDied;
             GameManager_Master.Instance.LivesUIEvent += UpdateUI;
@@ -19,7 +19,7 @@ namespace GameManager
                 Debug.LogWarning("missing UI reference");
             }
 
-            DontDestroyOnLoad(LivesUI);
+            DontDestroyOnLoad(LivesUI.gameObject);
         }
 
         private void OnDisable()

@@ -7,7 +7,7 @@ namespace GameManager
 {
     public class GameManager_GoToMenuScene : MonoBehaviour
     {
-        private void Start()
+        private void OnEnable()
         {
             GameManager_Master.Instance.GoToMenuSceneEvent += GoToMenuScene;
         }
