@@ -13,7 +13,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: d0ae7398bb2fdaf4da2fe54f5147ffe1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -28,7 +28,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1293682673628185660}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c651373b91010824ea7acfb1c9aff56f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7fa7e09958f196742b718e2660c05a3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6585056261439733219
@@ -137,8 +137,8 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 4
   deathClip: {fileID: 0}
-  damageClip: {fileID: 0}
-  healingClip: {fileID: 0}
+  damageClip: {fileID: 8300000, guid: 75c0e9677edf48549a9f8d06267949ab, type: 3}
+  healingClip: {fileID: 8300000, guid: 62244b5fcc6e84745a59f35ad30bf637, type: 3}
 --- !u!82 &7075038286147914490
 AudioSource:
   m_ObjectHideFlags: 0
@@ -318,6 +318,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 7936544435989051990, guid: f42b0de89417af74897d363c8d3eb25d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -1389706179863368070, guid: f42b0de89417af74897d363c8d3eb25d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -338,11 +343,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: da4d91ddb5aa77f44abb1d316e984cf4, type: 2}
-    - target: {fileID: 7936544435989051990, guid: f42b0de89417af74897d363c8d3eb25d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f42b0de89417af74897d363c8d3eb25d, type: 3}
 --- !u!1 &1293682673628185660 stripped

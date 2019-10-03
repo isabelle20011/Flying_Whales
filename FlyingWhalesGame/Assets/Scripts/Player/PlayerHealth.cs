@@ -18,6 +18,7 @@ public class PlayerHealth : MonoBehaviour
     private Animator anim;                                              // Reference to the Animator component.
     private AudioSource playerAudio;                                    // Reference to the AudioSource component.
     private PlayerMovement playerMovement;                              // Reference to the player's movement.
+    private Rigidbody rigidbody;
     private bool isDead;
     private int playerLives;
 
@@ -40,10 +41,10 @@ public class PlayerHealth : MonoBehaviour
     private void Awake()
     {
         // Setting up the references.
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         playerAudio = GetComponent<AudioSource>();
         playerMovement = GetComponent<PlayerMovement>();
-
+        rigidbody = GetComponent<Rigidbody>();
         // Set the initial health of the player.
         currentHealth = startingHealth;
     }
@@ -110,7 +111,8 @@ public class PlayerHealth : MonoBehaviour
         }
 
         Destroy(gameObject, 4f);
-        playerMovement.enabled = false;
+        rigidbody.isKinematic = true;
+        //playerMovement.enabled = false;
         playerLives--;
         if (playerLives >= 0)
         {
