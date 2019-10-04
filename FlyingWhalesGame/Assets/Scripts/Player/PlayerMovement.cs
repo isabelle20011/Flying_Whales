@@ -208,6 +208,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void toggleAttack()
     {
-        m_Jump = false;
+        m_Attack = false;
     }
 }
