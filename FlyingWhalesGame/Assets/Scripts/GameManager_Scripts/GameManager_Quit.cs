@@ -6,7 +6,7 @@ namespace GameManager
 {
     public class GameManager_Quit : MonoBehaviour
     {
-        private void Start()
+        private void OnEnable()
         {
             GameManager_Master.Instance.QuitGameEvent += QuitGame;
         }

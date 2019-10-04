@@ -4,9 +4,9 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CharacterController))]
-[RequireComponent(typeof(Animator))]
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private float   crouchSpeed = 2f;
     [SerializeField] private float   walkingSpeed = 4f;
     [SerializeField] private float   sprintingSpeed = 8f;
     [SerializeField] private float   turnSpeed = 5.0F;
@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator            m_Animator;
     private Rigidbody           m_Rigidbody;
 
-    private float   m_CapsuleHeight;
+    private float   m_CapsuleRadius;
     private Vector3 m_CapsuleCenter;
     private Vector3 m_Move;
     private float   m_moveSpeed;
@@ -31,17 +31,19 @@ public class PlayerMovement : MonoBehaviour
     private bool  m_Crouching;
     private bool  m_Sprint;
     private bool  m_Attack;
-    private bool  m_Jump;
+    public bool  m_Jump;
     private bool  m_Dash;
+
+    public bool allowCrouch;
 
     // Use this for initialization
     private void Start()
     {
-        m_Animator = GetComponent<Animator>();
+        m_Animator = GetComponentInChildren<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
         m_Controller = GetComponent<CharacterController>();
 
-        m_CapsuleHeight = m_Controller.height;
+        m_CapsuleRadius = m_Controller.radius;
         m_CapsuleCenter = m_Controller.center;
 
         m_Move = new Vector3(0f, 0f, 0f);
@@ -54,8 +56,11 @@ public class PlayerMovement : MonoBehaviour
         Move();
         Jump();
         Sprint();
-        Dash();
-        Crouch();
+        if (allowCrouch)
+        {
+            Dash();
+            Crouch();
+        }
         Gravity();
         Rotate();
         Attack();
@@ -67,9 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
         UpdateAnimator();
 
-        m_Dash = false;
-        m_Attack = false; // change to animation time
-
+        m_Attack = false;
     }
 
     private void Move()
@@ -90,31 +93,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && !m_Jump && !m_Crouching)
         {
             Debug.Log("Jump");
             m_Move.y = jumpHeight;
             m_Jump = true;
-            StartCoroutine(FinishJump());
         }
-    }
-
-    IEnumerator FinishJump()
-    {
-        yield return new WaitForSeconds(0.5f);
-        m_Jump = false;
     }
 
     private void Sprint()
     {
-        if (!m_Crouching && Input.GetButtonDown("Sprint"))
+        if (!m_Crouching && Input.GetButtonDown("Sprint") && !m_Dash)
         {
             Debug.Log("Sprint");
             m_Sprint = true;
             m_moveSpeed = sprintingSpeed;
 
         }
-        else if (Input.GetButtonUp("Sprint"))
+        else if (Input.GetButtonUp("Sprint") && m_Sprint)
         {
             m_Sprint = false;
             m_moveSpeed = walkingSpeed;
@@ -123,49 +119,48 @@ public class PlayerMovement : MonoBehaviour
 
     private void Dash()
     {
-        if (m_Sprint && Input.GetButtonDown("Crouch") && !m_Crouching)
+        if (m_Sprint && Input.GetButtonDown("Crouch") && !m_Crouching && !m_Dash)
         {
             Debug.Log("Dash");
             m_Move += Vector3.Scale(transform.forward, DashDistance * new Vector3((Mathf.Log(1f / (Time.deltaTime * Drag.x + 1)) / -Time.deltaTime), 0,
                                         (Mathf.Log(1f / (Time.deltaTime * Drag.z + 1)) / -Time.deltaTime)));
             m_Sprint = false;
             m_Dash = true;
+            m_moveSpeed = walkingSpeed;
         }
         m_Move.x /= 1 + Drag.x * Time.deltaTime;
+        m_Move.y /= 1 + Drag.y * Time.deltaTime;
         m_Move.z /= 1 + Drag.z * Time.deltaTime;
     }
 
     private void Crouch()
     {
-        bool crouch = Input.GetButton("Crouch");
-        ScaleCapsuleForCrouching(crouch);
-    }
-
-    void ScaleCapsuleForCrouching(bool crouch)
-    {
-        if (crouch)
+        if (Input.GetButtonDown("Crouch"))
         {
             Debug.Log("Crouch");
             if (m_Crouching) return;
-            m_Controller.height /= 2f;
-            m_Controller.center /= 2f;
+            m_Controller.radius /= 2f;
+            //m_Controller.center /= 2f;
             m_Crouching = true;
+            m_moveSpeed = crouchSpeed;
         }
-        else
+        else if (Input.GetButtonUp("Crouch"))
         {
-            //Ray crouchRay = new Ray(m_Rigidbody.position + Vector3.up * m_Controller.radius * 0.5f, Vector3.up);
-            //float crouchRayLength = m_CapsuleHeight - m_Controller.radius * 0.5f;
-            //if (Physics.SphereCast(crouchRay, m_Controller.radius * 0.5f, crouchRayLength, Physics.AllLayers, QueryTriggerInteraction.Ignore))
-            //{
-            //    Debug.Log("OOPS");
-            //    m_Crouching = true;
-            //    return;
-            //}
-            if (m_Controller.height != m_CapsuleHeight && m_Crouching)
+            Ray crouchRay = new Ray(m_Rigidbody.position + Vector3.up * m_Controller.radius * 0.5f, Vector3.up);
+            float crouchRayLength = m_CapsuleRadius * 0.5f;
+            if (Physics.SphereCast(crouchRay, m_Controller.radius * 0.5f, crouchRayLength, Physics.AllLayers, QueryTriggerInteraction.Ignore) && m_Crouching)
             {
-                m_Controller.height = m_CapsuleHeight;
-                m_Controller.center = m_CapsuleCenter;
+                Debug.Log("OOPS");
+                m_Crouching = true;
+                return;
+            }
+            else if (m_Controller.radius != m_CapsuleRadius && m_Crouching)
+            {
+                m_Controller.radius = m_CapsuleRadius;
+                //m_Controller.center = m_CapsuleCenter;
                 m_Crouching = false;
+                m_moveSpeed = walkingSpeed;
+                m_Dash = false;
             }
         }
     }
@@ -182,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Attack()
     {
-        if (Input.GetButton("Fire1") && !m_Crouching && !m_Jump)
+        if (Input.GetButtonDown("Fire1") && !m_Crouching && !m_Jump)
         {
             Debug.Log("Attack");
             m_Attack = true;
@@ -205,5 +200,16 @@ public class PlayerMovement : MonoBehaviour
     {
         //change it to check animation instead
         return m_Attack || m_Sprint || m_Dash;
+    }
+
+
+    public void toggleJump()
+    {
+        m_Jump = false;
+    }
+
+    public void toggleAttack()
+    {
+        m_Attack = false;
     }
 }

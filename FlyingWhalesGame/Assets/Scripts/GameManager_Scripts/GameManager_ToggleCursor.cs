@@ -11,7 +11,7 @@ namespace GameManager
 
         private bool isCursorLocked = true;
 
-        private void Start()
+        private void OnEnable()
         {
             GameManager_Master.Instance.MenuToggleEvent += ToggleCursorState;
         }
