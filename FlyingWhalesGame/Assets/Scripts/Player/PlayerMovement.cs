@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private float   crouchSpeed = 2f;
     [SerializeField] private float   walkingSpeed = 4f;
     [SerializeField] private float   sprintingSpeed = 8f;
     [SerializeField] private float   turnSpeed = 5.0F;
@@ -33,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
     public bool  m_Jump;
     private bool  m_Dash;
 
+    public bool allowCrouch;
+
     // Use this for initialization
     private void Start()
     {
@@ -53,8 +56,11 @@ public class PlayerMovement : MonoBehaviour
         Move();
         Jump();
         Sprint();
-        Dash();
-        Crouch();
+        if (allowCrouch)
+        {
+            Dash();
+            Crouch();
+        }
         Gravity();
         Rotate();
         Attack();
@@ -65,11 +71,6 @@ public class PlayerMovement : MonoBehaviour
         m_Controller.Move(m_Move * Time.deltaTime);
 
         UpdateAnimator();
-
-        m_Dash = false;
-        m_Attack = false; // change to animation time
-        
-
     }
 
     private void Move()
@@ -90,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (Input.GetButtonDown("Jump") && !m_Jump)
+        if (Input.GetButtonDown("Jump") && !m_Jump && !m_Crouching)
         {
             Debug.Log("Jump");
             m_Move.y = jumpHeight;
@@ -100,14 +101,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Sprint()
     {
-        if (!m_Crouching && Input.GetButtonDown("Sprint"))
+        if (!m_Crouching && Input.GetButtonDown("Sprint") && !m_Dash)
         {
             Debug.Log("Sprint");
             m_Sprint = true;
             m_moveSpeed = sprintingSpeed;
 
         }
-        else if (Input.GetButtonUp("Sprint"))
+        else if (Input.GetButtonUp("Sprint") && m_Sprint)
         {
             m_Sprint = false;
             m_moveSpeed = walkingSpeed;
@@ -116,35 +117,32 @@ public class PlayerMovement : MonoBehaviour
 
     private void Dash()
     {
-        if (m_Sprint && Input.GetButtonDown("Crouch") && !m_Crouching)
+        if (m_Sprint && Input.GetButtonDown("Crouch") && !m_Crouching && !m_Dash)
         {
             Debug.Log("Dash");
             m_Move += Vector3.Scale(transform.forward, DashDistance * new Vector3((Mathf.Log(1f / (Time.deltaTime * Drag.x + 1)) / -Time.deltaTime), 0,
                                         (Mathf.Log(1f / (Time.deltaTime * Drag.z + 1)) / -Time.deltaTime)));
             m_Sprint = false;
             m_Dash = true;
+            m_moveSpeed = walkingSpeed;
         }
         m_Move.x /= 1 + Drag.x * Time.deltaTime;
+        m_Move.y /= 1 + Drag.y * Time.deltaTime;
         m_Move.z /= 1 + Drag.z * Time.deltaTime;
     }
 
     private void Crouch()
     {
-        bool crouch = Input.GetButton("Crouch");
-        ScaleCapsuleForCrouching(crouch);
-    }
-
-    void ScaleCapsuleForCrouching(bool crouch)
-    {
-        if (crouch)
+        if (Input.GetButtonDown("Crouch"))
         {
             Debug.Log("Crouch");
             if (m_Crouching) return;
             m_Controller.radius /= 2f;
             //m_Controller.center /= 2f;
             m_Crouching = true;
+            m_moveSpeed = crouchSpeed;
         }
-        else
+        else if (Input.GetButtonUp("Crouch"))
         {
             Ray crouchRay = new Ray(m_Rigidbody.position + Vector3.up * m_Controller.radius * 0.5f, Vector3.up);
             float crouchRayLength = m_CapsuleRadius * 0.5f;
@@ -159,6 +157,8 @@ public class PlayerMovement : MonoBehaviour
                 m_Controller.radius = m_CapsuleRadius;
                 //m_Controller.center = m_CapsuleCenter;
                 m_Crouching = false;
+                m_moveSpeed = walkingSpeed;
+                m_Dash = false;
             }
         }
     }
@@ -204,5 +204,10 @@ public class PlayerMovement : MonoBehaviour
     public void toggleJump()
     {
         m_Jump = false;
+    }
+
+    public void toggleAttack()
+    {
+        m_Attack = false;
     }
 }
