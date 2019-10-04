@@ -71,6 +71,8 @@ public class PlayerMovement : MonoBehaviour
         m_Controller.Move(m_Move * Time.deltaTime);
 
         UpdateAnimator();
+
+        m_Attack = false;
     }
 
     private void Move()
@@ -175,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Attack()
     {
-        if (Input.GetButton("Fire1") && !m_Crouching && !m_Jump)
+        if (Input.GetButtonDown("Fire1") && !m_Crouching && !m_Jump)
         {
             Debug.Log("Attack");
             m_Attack = true;
