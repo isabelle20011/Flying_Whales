@@ -190,7 +190,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &9866366
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -236,7 +236,7 @@ MonoBehaviour:
     name: Terry
     sentences:
     - 'Whale hello there! Ha ha, bet you don''t hear that one often! I''m Terry! '
-    - No, not Terry Bogard, I'm Terry Esteban Julio Ricardo Montoya de la Rosa Ramirez
+    - No, not Terry Bogard, I'm Terry Esteban Julio Ricardo Montoya de la Rosa Ramirez!!!
     - Ever since that other Terry got announced for Smash, everyone has been forgetting
       my name!
     - '.... Wait a second...'
@@ -639,7 +639,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &705093188
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1012,6 +1012,7 @@ MonoBehaviour:
   nameText: {fileID: 705093187}
   dialogueText: {fileID: 9866365}
   canvas: {fileID: 0}
+  timeBtwnPrint: 5
   inConvo: 0
 --- !u!4 &1975898701
 Transform:
