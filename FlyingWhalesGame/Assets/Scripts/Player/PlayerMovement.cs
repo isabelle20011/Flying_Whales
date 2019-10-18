@@ -201,8 +201,7 @@ public class PlayerMovement : MonoBehaviour
         //change it to check animation instead
         return m_Attack || m_Sprint || m_Dash;
     }
-
-
+    
     public void toggleJump()
     {
         m_Jump = false;
