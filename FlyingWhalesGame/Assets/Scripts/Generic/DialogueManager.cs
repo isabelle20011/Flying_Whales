@@ -8,9 +8,6 @@ public class DialogueManager : MonoBehaviour
     public Text nameText;
     public Text dialogueText;
     public Canvas canvas;
-    [SerializeField]
-    private float timeBtwnPrint;
-    private float timer;
 
     private Queue<string> sentences; //works like a list, but more restricted. It's FIFO (First in, First Out) so new sentences are loaded from the end of the queu
     public bool inConvo = false;
@@ -19,7 +16,6 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
-        canvas = FindObjectOfType<Canvas>();
         canvas.enabled = false;
     }
 
@@ -48,16 +44,9 @@ public class DialogueManager : MonoBehaviour
         }
         inConvo = true;
         string sentence = sentences.Dequeue(); //removes and returns the first object of the queue
-        foreach(char character in sentence)
-        {
-           while (timer < timeBtwnPrint)
-           {
-                timer += Time.deltaTime;
-           }
-            timer = 0;
-            dialogueText.text += character;
-        }
-        //dialogueText.text = sentence;
+       
+        dialogueText.text = sentence;
+        
     }
 
     void EndDialogue()
