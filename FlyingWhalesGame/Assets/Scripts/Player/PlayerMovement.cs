@@ -30,8 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private float m_InputTurn;
     private bool  m_Crouching;
     private bool  m_Sprint;
-    private bool  m_Attack;
-    public bool  m_Jump;
+    public bool   m_Jump;
     private bool  m_Dash;
 
     public bool allowCrouch;
@@ -71,8 +70,6 @@ public class PlayerMovement : MonoBehaviour
         m_Controller.Move(m_Move * Time.deltaTime);
 
         UpdateAnimator();
-
-        m_Attack = false;
     }
 
     private void Move()
@@ -180,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && !m_Crouching && !m_Jump)
         {
             Debug.Log("Attack");
-            m_Attack = true;
+			m_Animator.SetTrigger("Attack");
         }
     }
 
@@ -192,23 +189,17 @@ public class PlayerMovement : MonoBehaviour
         m_Animator.SetBool("Crouch", m_Crouching);
         m_Animator.SetBool("Jump", m_Jump);
         m_Animator.SetBool("Sprinting", m_Sprint);
-        m_Animator.SetBool("Attack", m_Attack);
         m_Animator.SetBool("Dash", m_Dash);
     }
 
     public bool IsAttacking()
     {
         //change it to check animation instead
-        return m_Attack || m_Sprint || m_Dash;
+        return m_Sprint || m_Dash || m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Attack");
     }
     
     public void toggleJump()
     {
         m_Jump = false;
-    }
-
-    public void toggleAttack()
-    {
-        m_Attack = false;
     }
 }
