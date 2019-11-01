@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 //made by Daniel Otaigbe
 public class DialogueManager : MonoBehaviour
 {
     public Text nameText;
     public Text dialogueText;
+	public TextMeshProUGUI helperText;
     public Canvas canvas;
+	public GameObject dialogueBox;
 
     private Queue<string> sentences; //works like a list, but more restricted. It's FIFO (First in, First Out) so new sentences are loaded from the end of the queu
     public bool inConvo = false;
@@ -30,7 +33,8 @@ public class DialogueManager : MonoBehaviour
         {
             sentences.Enqueue(sentence); //adds all the sentences to the queue
         }
-        canvas.enabled = true;
+		canvas.enabled = true;
+		dialogueBox.gameObject.SetActive(true);
         DisplayNextSentence();
     }
 
@@ -44,14 +48,23 @@ public class DialogueManager : MonoBehaviour
         }
         inConvo = true;
         string sentence = sentences.Dequeue(); //removes and returns the first object of the queue
-       
-        dialogueText.text = sentence;
+		dialogueText.text = sentence;
         
     }
 
-    void EndDialogue()
+    public virtual void EndDialogue()
     {
-        canvas.enabled = false;
-        Debug.Log("End of conversation.");
+		dialogueBox.gameObject.SetActive(false);
+		Debug.Log("End of conversation.");
     }
+
+	public void showHelperText()
+	{
+		canvas.enabled = true;
+	}
+
+	public void hideHelperText()
+	{
+		canvas.enabled = false;
+	}
 }
