@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b58edc26818cc344b569a940a9ae080, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crouchSpeed: 2
   walkingSpeed: 8
   sprintingSpeed: 15
   turnSpeed: 2.5
@@ -105,6 +106,7 @@ MonoBehaviour:
   DashDistance: 10
   Drag: {x: 5, y: 0, z: 5}
   m_Jump: 0
+  allowCrouch: 0
 --- !u!54 &6585056261439733228
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -136,7 +138,7 @@ MonoBehaviour:
   startingHealth: 1
   currentHealth: 0
   maxHealth: 4
-  deathClip: {fileID: 0}
+  deathClip: {fileID: 8300000, guid: 9327ba449f593a549838fab7db2cbc65, type: 3}
   damageClip: {fileID: 8300000, guid: 75c0e9677edf48549a9f8d06267949ab, type: 3}
   healingClip: {fileID: 8300000, guid: 62244b5fcc6e84745a59f35ad30bf637, type: 3}
 --- !u!82 &7075038286147914490
