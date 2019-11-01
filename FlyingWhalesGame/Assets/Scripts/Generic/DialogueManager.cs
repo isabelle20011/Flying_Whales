@@ -35,8 +35,8 @@ public class DialogueManager : MonoBehaviour
         }
 		canvas.enabled = true;
 		dialogueBox.gameObject.SetActive(true);
-        DisplayNextSentence();
-    }
+		DisplayNextSentence();
+	}
 
     public void DisplayNextSentence()
     {
@@ -46,10 +46,9 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
             return;
         }
-        inConvo = true;
-        string sentence = sentences.Dequeue(); //removes and returns the first object of the queue
+		inConvo = true;
+		string sentence = sentences.Dequeue(); //removes and returns the first object of the queue
 		dialogueText.text = sentence;
-        
     }
 
     public virtual void EndDialogue()
