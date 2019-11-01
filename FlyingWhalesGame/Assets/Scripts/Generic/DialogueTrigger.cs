@@ -7,6 +7,7 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
     private DialogueManager dialogueManager;
+	private bool wasCalledThisFrame = false;
 
     private void Start()
     {
@@ -21,20 +22,49 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-
         //we can add another if statement here for a layer or tag of game objects you can talk to so we don't do component calls all the time
         if (other.tag == "Player")
         {
-            
-            if (Input.GetButtonDown("Interact") && !dialogueManager.inConvo)
+			if (Input.GetButtonUp("Interact") && !dialogueManager.inConvo && !wasCalledThisFrame)
+			{
+				Debug.Log("trigger");
+				TriggerDialogue();
+				wasCalledThisFrame = true;
+				StartCoroutine(waitDialogue());
+			}
+			else if (Input.GetButtonUp("Interact") && dialogueManager.inConvo && !wasCalledThisFrame)
             {
-                TriggerDialogue();
-            }
-            else if (Input.GetButtonDown("Interact") && dialogueManager.inConvo)
-            {
-                dialogueManager.DisplayNextSentence();
-            }
+				Debug.Log("displayNext");
+				dialogueManager.DisplayNextSentence();
+				wasCalledThisFrame = true;
+				StartCoroutine(waitDialogue());
+
+			}
         }
     }
+
+	IEnumerator waitDialogue()
+	{
+		yield return new WaitForSeconds(0.1f);
+		wasCalledThisFrame = false;
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		//we can add another if statement here for a layer or tag of game objects you can talk to so we don't do component calls all the time
+		if (other.tag == "Player")
+		{
+			dialogueManager.showHelperText();
+		}
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		//we can add another if statement here for a layer or tag of game objects you can talk to so we don't do component calls all the time
+		if (other.tag == "Player")
+		{
+			dialogueManager.hideHelperText();
+		}
+	}
 
 }
