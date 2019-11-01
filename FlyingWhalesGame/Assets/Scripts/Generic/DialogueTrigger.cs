@@ -37,4 +37,22 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
+	private void OnTriggerEnter(Collider other)
+	{
+		//we can add another if statement here for a layer or tag of game objects you can talk to so we don't do component calls all the time
+		if (other.tag == "Player")
+		{
+			dialogueManager.showHelperText();
+		}
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		//we can add another if statement here for a layer or tag of game objects you can talk to so we don't do component calls all the time
+		if (other.tag == "Player")
+		{
+			dialogueManager.hideHelperText();
+		}
+	}
+
 }
