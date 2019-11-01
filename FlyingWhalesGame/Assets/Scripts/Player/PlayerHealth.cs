@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip deathClip;
     public AudioClip damageClip;
     public AudioClip healingClip;
+    public GameObject BGM;                                              // (by Sabin Kim) the BGM GameObject
 
     private Animator anim;                                              // Reference to the Animator component.
     private AudioSource playerAudio;                                    // Reference to the AudioSource component.
@@ -21,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
     private Rigidbody rigidbody;
     private bool isDead;
     private int playerLives;
+    private AudioSource BGMSource;                                      // (by Sabin Kim) AudioSource of BGM GameObject
 
     public float Health { get { return currentHealth; } }
     public float MaxHealth { get { return maxHealth; } }
@@ -45,6 +47,11 @@ public class PlayerHealth : MonoBehaviour
         playerAudio = GetComponent<AudioSource>();
         playerMovement = GetComponent<PlayerMovement>();
         rigidbody = GetComponent<Rigidbody>();
+
+        // (by Sabin Kim) Find BGM GameObject (which wears "BackgroundMusic" Tag) and get its AudioSource component
+        BGM = GameObject.FindGameObjectWithTag("BackgroundMusic");
+        BGMSource = BGM.GetComponent<AudioSource>();
+
         // Set the initial health of the player.
         currentHealth = startingHealth;
     }
@@ -106,6 +113,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (deathClip != null)
         {
+            BGMSource.Stop();               // (by Sabin Kim) when Whale dies, stop level BGM
             playerAudio.clip = deathClip;
             playerAudio.Play();
         }
