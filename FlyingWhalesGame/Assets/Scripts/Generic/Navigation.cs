@@ -19,10 +19,12 @@ public class Navigation : MonoBehaviour
     /// </summary>
     public List<GameObject> patrolSpots = new List<GameObject>();
 
+	public int healthAI = 1;
+
     /// <summary>
     /// The player we want to find and destroy
     /// </summary>
-    public GameObject player;
+    private GameObject player;
 
     /// <summary>
     /// Used for distance calculations
@@ -53,13 +55,21 @@ public class Navigation : MonoBehaviour
     /// Are we currently seeking a player
     /// </summary>
     private bool seekingPlayer = false;
+
+	//animator variables
+	private Animator animator;
+	private bool attack;
+	private bool died;
+
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         myTransform = GetComponent<Transform>();
-        
-    }
+		animator = GetComponent<Animator>();
+		player = GameObject.FindGameObjectWithTag("Player");
+
+	}
 
     // Update is called once per frame
     void Update()
@@ -100,6 +110,10 @@ public class Navigation : MonoBehaviour
                 seekingPatrol = false;
             }
         }
+
+		animator.SetBool("Seeking", seekingPlayer);
+		animator.SetBool("Patrol", seekingPatrol);
+		animator.SetBool("Attack", attack);
     }
 
     /// <summary>
@@ -109,5 +123,51 @@ public class Navigation : MonoBehaviour
     private void Seek(Transform destination)
     {
         agent.destination = destination.position;
-    }
+		if (Vector3.Distance(myTransform.position, player.transform.position) < 2)
+		{
+			attack = true;
+		}
+		else
+		{
+			attack = false;
+		}
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		// If the entering collider is the player...
+		if (other.gameObject == player)
+		{
+			PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+			if (playerMovement)
+			{
+				if (playerMovement.IsAttacking())
+				{
+					if (healthAI <= 1)
+					{
+						died = true;
+						animator.SetBool("Died", died);
+						agent.enabled = false;
+						healthAI = 0;
+						Destroy(gameObject, 4f);
+					}
+					else
+					{
+						animator.SetTrigger("Damaged");
+						healthAI--;
+					}
+				}
+			}
+		}
+	}
+
+	public void ExecuteAttackSound()
+	{
+		EventManager.TriggerEvent<attackSoundEvent, Vector3>(transform.position);
+	}
+
+	public void ExecuteDamageSound()
+	{
+		EventManager.TriggerEvent<damageSoundEvent, Vector3>(transform.position);
+	}
 }

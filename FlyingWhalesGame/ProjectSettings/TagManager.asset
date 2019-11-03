@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Talker
+  - BackgroundMusic
   layers:
   - Default
   - TransparentFX

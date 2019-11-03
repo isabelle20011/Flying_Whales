@@ -7,7 +7,7 @@ namespace GameManager
 {
     public class GameManager_PlayerDied : MonoBehaviour
     {
-        public TextMeshProUGUI LivesUI;
+		public TextMeshProUGUI LivesUI;
 
         private void OnEnable()
         {
