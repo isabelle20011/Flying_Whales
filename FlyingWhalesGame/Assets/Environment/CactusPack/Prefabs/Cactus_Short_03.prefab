@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 765dc9ac7eff0e74c944fb0844024227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenAttacks: 0.5
+  timeBetweenAttacks: 1.1
   KillOnTouch: 0
   DestroyAfterDamage: 0
 --- !u!65 &3774080867149521713
