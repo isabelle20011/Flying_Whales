@@ -6,9 +6,16 @@ public class TransformFollower : MonoBehaviour
     [SerializeField] private bool lookAt = true;
     [SerializeField] private Transform target;
     [SerializeField] private Vector3 offsetPosition = new Vector3(0, 0, 0);
-    [SerializeField] private Space offsetPositionSpace = Space.Self;
-    [SerializeField] private bool m_AutoTargetPlayer = true;  // Whether the rig should automatically target the player.
+	[SerializeField] private Vector3 offsetPositionDialog = new Vector3(3, 0, 0);
 	[SerializeField] private Vector3 offsetUp = new Vector3(0, 1, 0);
+	[SerializeField] private Space offsetPositionSpace = Space.Self;
+	[SerializeField] public bool b_offsetPositionDialog = false;
+	[SerializeField] private bool m_AutoTargetPlayer = true;  // Whether the rig should automatically target the player.
+	[SerializeField] private float f_transitionTimeFinal = 10f;
+	private float f_transitionTime = 3f;
+
+	private Vector3 TargetPosition;
+
 
 	protected virtual void Start()
     {
@@ -18,9 +25,10 @@ public class TransformFollower : MonoBehaviour
         {
             FindAndTargetPlayer();
         }
+		StartCoroutine(ChangeSpeedCamera());
     }
 
-    private void LateUpdate()
+	private void LateUpdate()
     {
         Refresh();
         if (m_AutoTargetPlayer && (target == null || !target.gameObject.activeSelf))
@@ -59,17 +67,33 @@ public class TransformFollower : MonoBehaviour
         // compute position
         if (offsetPositionSpace == Space.Self)
         {
-            transform.position = target.TransformPoint(offsetPosition);
-        }
+			if (b_offsetPositionDialog)
+			{
+				TargetPosition = target.TransformPoint(offsetPosition + offsetPositionDialog);
+			}
+			else
+			{
+				TargetPosition = target.TransformPoint(offsetPosition);
+			}
+		}
         else
         {
-            transform.position = target.position + offsetPosition;
+			TargetPosition = target.position + offsetPosition;
         }
 
-        // compute rotation
-        if (lookAt)
+		transform.position = Vector3.Lerp(transform.position, TargetPosition, f_transitionTime * Time.fixedDeltaTime);
+
+		// compute rotation
+		if (lookAt)
         {
             transform.LookAt(target.position + offsetUp);
         }
     }
+
+	IEnumerator ChangeSpeedCamera()
+	{
+		yield return new WaitForSeconds(2);
+		f_transitionTime = Mathf.Lerp(f_transitionTime, f_transitionTimeFinal, 0.5f);
+	}
+
 }

@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
 	public TextMeshProUGUI helperText;
     public Canvas canvas;
 	public GameObject dialogueBox;
+	private TransformFollower cameraScript;
 
     private Queue<string> sentences; //works like a list, but more restricted. It's FIFO (First in, First Out) so new sentences are loaded from the end of the queu
     public bool inConvo = false;
@@ -20,6 +21,19 @@ public class DialogueManager : MonoBehaviour
     {
         sentences = new Queue<string>();
         canvas.enabled = false;
+		
+		if (Camera.main)
+		{
+			cameraScript = Camera.main.GetComponent<TransformFollower>();
+			if (cameraScript == null)
+			{
+				Debug.LogWarning("No main camera follower script");
+			}
+		}
+		else
+		{
+			Debug.LogWarning("No main camera");
+		}
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -33,6 +47,7 @@ public class DialogueManager : MonoBehaviour
         {
             sentences.Enqueue(sentence); //adds all the sentences to the queue
         }
+		cameraScript.b_offsetPositionDialog = true;
 		canvas.enabled = true;
 		dialogueBox.gameObject.SetActive(true);
 		DisplayNextSentence();
@@ -53,6 +68,7 @@ public class DialogueManager : MonoBehaviour
 
     public virtual void EndDialogue()
     {
+		cameraScript.b_offsetPositionDialog = false;
 		dialogueBox.gameObject.SetActive(false);
 		Debug.Log("End of conversation.");
     }
