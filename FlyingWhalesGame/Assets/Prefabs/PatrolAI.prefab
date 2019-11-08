@@ -1289,7 +1289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 0.5
-  KillOnTouch: 1
+  KillOnTouch: 0
   DestroyAfterDamage: 0
 --- !u!1 &4471925608019120152
 GameObject:
