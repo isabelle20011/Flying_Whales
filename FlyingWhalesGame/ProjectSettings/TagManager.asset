@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Talker
+  - PatrolNodes
+  - BGM
   - BackgroundMusic
   layers:
   - Default

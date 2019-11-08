@@ -8,8 +8,9 @@ public class TransformFollower : MonoBehaviour
     [SerializeField] private Vector3 offsetPosition = new Vector3(0, 0, 0);
     [SerializeField] private Space offsetPositionSpace = Space.Self;
     [SerializeField] private bool m_AutoTargetPlayer = true;  // Whether the rig should automatically target the player.
+	[SerializeField] private Vector3 offsetUp = new Vector3(0, 1, 0);
 
-    protected virtual void Start()
+	protected virtual void Start()
     {
         // if auto targeting is used, find the object tagged "Player"
         // any class inheriting from this should call base.Start() to perform this action!
@@ -52,8 +53,6 @@ public class TransformFollower : MonoBehaviour
     {
         if (target == null)
         {
-            Debug.LogWarning("Missing target ref !", this);
-
             return;
         }
 
@@ -70,7 +69,7 @@ public class TransformFollower : MonoBehaviour
         // compute rotation
         if (lookAt)
         {
-            transform.LookAt(target);
+            transform.LookAt(target.position + offsetUp);
         }
     }
 }

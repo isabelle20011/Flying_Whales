@@ -14,12 +14,12 @@ namespace GameManager
             GameManager_Master.Instance.PlayerDiedEvent += PlayerDied;
             GameManager_Master.Instance.LivesUIEvent += UpdateUI;
 
-            if (LivesUI != null)
+            if (LivesUI == null)
             {
                 Debug.LogWarning("missing UI reference");
             }
 
-            DontDestroyOnLoad(LivesUI.gameObject);
+            //DontDestroyOnLoad(LivesUI.gameObject);
         }
 
         private void OnDisable()

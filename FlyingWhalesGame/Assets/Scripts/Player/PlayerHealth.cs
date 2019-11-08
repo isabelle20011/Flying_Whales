@@ -19,7 +19,6 @@ public class PlayerHealth : MonoBehaviour
     private Animator anim;                                              // Reference to the Animator component.
     private AudioSource playerAudio;                                    // Reference to the AudioSource component.
     private PlayerMovement playerMovement;                              // Reference to the player's movement.
-    private Rigidbody rigidbody;
     private bool isDead;
     private int playerLives;
     private AudioSource BGMSource;                                      // (by Sabin Kim) AudioSource of BGM GameObject
@@ -46,11 +45,17 @@ public class PlayerHealth : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         playerAudio = GetComponent<AudioSource>();
         playerMovement = GetComponent<PlayerMovement>();
-        rigidbody = GetComponent<Rigidbody>();
 
         // (by Sabin Kim) Find BGM GameObject (which wears "BackgroundMusic" Tag) and get its AudioSource component
-        BGM = GameObject.FindGameObjectWithTag("BackgroundMusic");
-        BGMSource = BGM.GetComponent<AudioSource>();
+        BGM = GameObject.FindGameObjectWithTag("BGM");
+		if (BGM)
+		{
+			BGMSource = BGM.GetComponent<AudioSource>();
+		}
+		else
+		{
+			Debug.LogWarning("No death music found");
+		}
 
         // Set the initial health of the player.
         currentHealth = startingHealth;
@@ -59,7 +64,7 @@ public class PlayerHealth : MonoBehaviour
     private void Start()
     {
         playerLives = GameManager_Master.Instance.playerLives;
-    }
+	}
 
     public void AddHealth()
     {
@@ -81,7 +86,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
-    }
+	}
 
 
     public void TakeDamage()
@@ -119,8 +124,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
         Destroy(gameObject, 4f);
-        rigidbody.isKinematic = true;
-        //playerMovement.enabled = false;
+        playerMovement.enabled = false;
         playerLives--;
         if (playerLives >= 0)
         {

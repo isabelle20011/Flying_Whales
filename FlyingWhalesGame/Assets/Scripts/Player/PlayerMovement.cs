@@ -20,7 +20,6 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody           m_Rigidbody;
 
     private float   m_CapsuleRadius;
-    private Vector3 m_CapsuleCenter;
     private Vector3 m_Move;
     private float   m_moveSpeed;
 
@@ -43,7 +42,6 @@ public class PlayerMovement : MonoBehaviour
         m_Controller = GetComponent<CharacterController>();
 
         m_CapsuleRadius = m_Controller.radius;
-        m_CapsuleCenter = m_Controller.center;
 
         m_Move = new Vector3(0f, 0f, 0f);
         m_moveSpeed = walkingSpeed;
@@ -154,7 +152,6 @@ public class PlayerMovement : MonoBehaviour
             else if (m_Controller.radius != m_CapsuleRadius && m_Crouching)
             {
                 m_Controller.radius = m_CapsuleRadius;
-                //m_Controller.center = m_CapsuleCenter;
                 m_Crouching = false;
                 m_moveSpeed = walkingSpeed;
                 m_Dash = false;

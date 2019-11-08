@@ -25,20 +25,64 @@ public class DialogueTrigger : MonoBehaviour
         //we can add another if statement here for a layer or tag of game objects you can talk to so we don't do component calls all the time
         if (other.tag == "Player")
         {
-			if (Input.GetButtonUp("Interact") && !dialogueManager.inConvo && !wasCalledThisFrame)
+			PlayerMovement playerMovement = other.GetComponent<PlayerMovement>();
+			simplePlayerMovement sPlayerMovement = other.GetComponent<simplePlayerMovement>();
+			if (playerMovement || sPlayerMovement)
 			{
-				Debug.Log("trigger");
-				TriggerDialogue();
-				wasCalledThisFrame = true;
-				StartCoroutine(waitDialogue());
-			}
-			else if (Input.GetButtonUp("Interact") && dialogueManager.inConvo && !wasCalledThisFrame)
-            {
-				Debug.Log("displayNext");
-				dialogueManager.DisplayNextSentence();
-				wasCalledThisFrame = true;
-				StartCoroutine(waitDialogue());
+				; if (Input.GetButtonUp("Interact") && !dialogueManager.inConvo && !wasCalledThisFrame)
+				{
+					Debug.Log("trigger");
+					TriggerDialogue();
+					wasCalledThisFrame = true;
+					StartCoroutine(waitDialogue());
+					if (playerMovement)
+					{
 
+						playerMovement.enabled = false;
+					}
+					else
+					{
+						sPlayerMovement.enabled = false;
+					}
+				}
+				else if (Input.GetButtonUp("Interact") && dialogueManager.inConvo && !wasCalledThisFrame)
+				{
+					Debug.Log("displayNext");
+					dialogueManager.DisplayNextSentence();
+					wasCalledThisFrame = true;
+					StartCoroutine(waitDialogue());
+
+				}
+				else if (Input.GetButtonUp("Interact") && !dialogueManager.inConvo)
+				{
+					if (playerMovement)
+					{
+						playerMovement.enabled = true;
+					}
+					else
+					{
+						sPlayerMovement.enabled = true;
+					}
+				}
+
+				if (dialogueManager.inConvo)
+				{
+					Vector3 targetDir = this.transform.position - other.transform.position;
+					Vector3 targetDir2 =  other.transform.position - this.transform.position;
+
+					// The step size is equal to speed times frame time.
+					float step = 2 * Time.deltaTime;
+
+					Vector3 newDir = Vector3.RotateTowards(other.transform.forward, targetDir, step, 0.0f);
+					Vector3 newDir2 = Vector3.RotateTowards(this.transform.forward, targetDir2, step, 0.0f);
+
+					newDir = new Vector3(newDir.x, 0, newDir.z);
+					newDir2 = new Vector3(newDir2.x, 0, newDir2.z);
+
+					// Move our position a step closer to the target.
+					other.transform.rotation = Quaternion.LookRotation(newDir);
+					this.transform.rotation = Quaternion.LookRotation(newDir2);
+				}
 			}
         }
     }
