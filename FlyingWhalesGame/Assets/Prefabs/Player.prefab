@@ -222,9 +222,10 @@ MonoBehaviour:
   startingHealth: 1
   currentHealth: 0
   maxHealth: 4
-  deathClip: {fileID: 0}
+  deathClip: {fileID: 8300000, guid: 9327ba449f593a549838fab7db2cbc65, type: 3}
   damageClip: {fileID: 8300000, guid: 75c0e9677edf48549a9f8d06267949ab, type: 3}
   healingClip: {fileID: 8300000, guid: 62244b5fcc6e84745a59f35ad30bf637, type: 3}
+  BGM: {fileID: 0}
 --- !u!82 &7075038286147914490
 AudioSource:
   m_ObjectHideFlags: 0

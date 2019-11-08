@@ -19,7 +19,7 @@ public class Navigation : MonoBehaviour
     /// </summary>
     public List<GameObject> patrolSpots = new List<GameObject>();
 
-	public int healthAI = 1;
+    public int healthAI = 1;
 
     /// <summary>
     /// The player we want to find and destroy
@@ -61,6 +61,9 @@ public class Navigation : MonoBehaviour
 	private bool attack;
 	private bool died;
 
+    //(Sabin Kim) reference to the set of patrol routes
+    private GameObject patrolNodes;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,8 +71,8 @@ public class Navigation : MonoBehaviour
         myTransform = GetComponent<Transform>();
 		animator = GetComponent<Animator>();
 		player = GameObject.FindGameObjectWithTag("Player");
-
-	}
+        patrolNodes = GameObject.FindGameObjectWithTag("PatrolNodes");
+    }
 
     // Update is called once per frame
     void Update()
@@ -150,6 +153,8 @@ public class Navigation : MonoBehaviour
 						agent.enabled = false;
 						healthAI = 0;
 						Destroy(gameObject, 4f);
+                        // (Sabin Kim) GameObject patrolNodes won't be needed anymore
+                        Destroy(patrolNodes);
 					}
 					else
 					{
