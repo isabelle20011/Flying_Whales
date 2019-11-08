@@ -559,6 +559,8 @@ GameObject:
   - component: {fileID: 1867226670}
   - component: {fileID: 1867226671}
   - component: {fileID: 736852856}
+  - component: {fileID: 4037240467631288127}
+  - component: {fileID: 2019334459794204435}
   m_Layer: 0
   m_Name: Butterfly
   m_TagString: Untagged
@@ -575,7 +577,7 @@ Transform:
   m_GameObject: {fileID: 138252}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.8212341, y: 0.5042472, z: 0.09815186}
-  m_LocalScale: {x: 0.01, y: 0.0100000035, z: 0.0100000035}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_Children:
   - {fileID: 455730}
   - {fileID: 445814}
@@ -635,8 +637,8 @@ Light:
   serializedVersion: 9
   m_Type: 2
   m_Color: {r: 0.24857599, g: 0.917699, b: 0.9245283, a: 1}
-  m_Intensity: 3
-  m_Range: 5
+  m_Intensity: 1.5
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -684,6 +686,31 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!65 &4037240467631288127
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138252}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 50, y: 50, z: 50}
+  m_Center: {x: 0, y: 0, z: 10}
+--- !u!114 &2019334459794204435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d54eb26555e326459495ec084c87cd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &138564
 GameObject:
   m_ObjectHideFlags: 0
