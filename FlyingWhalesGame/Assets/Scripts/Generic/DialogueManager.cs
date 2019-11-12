@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
     public Canvas canvas;
 	public GameObject dialogueBox;
 	private TransformFollower cameraScript;
+	private GameObject player;
 
     private Queue<string> sentences; //works like a list, but more restricted. It's FIFO (First in, First Out) so new sentences are loaded from the end of the queu
     public bool inConvo = false;
@@ -21,7 +22,13 @@ public class DialogueManager : MonoBehaviour
     {
         sentences = new Queue<string>();
         canvas.enabled = false;
-		
+		player = GameObject.FindGameObjectWithTag("Player");
+		if (player == null)
+		{
+			Debug.LogWarning("No player found");
+		}
+
+
 		if (Camera.main)
 		{
 			cameraScript = Camera.main.GetComponent<TransformFollower>();
@@ -66,12 +73,26 @@ public class DialogueManager : MonoBehaviour
 		dialogueText.text = sentence;
     }
 
-    public virtual void EndDialogue()
-    {
+	public virtual void EndDialogue()
+	{
 		cameraScript.b_offsetPositionDialog = false;
 		dialogueBox.gameObject.SetActive(false);
 		Debug.Log("End of conversation.");
-    }
+
+		PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+		simplePlayerMovement sPlayerMovement = player.GetComponent<simplePlayerMovement>();
+		if (playerMovement || sPlayerMovement)
+		{
+			if (playerMovement)
+			{
+				playerMovement.enabled = true;
+			}
+			else
+			{
+				sPlayerMovement.enabled = true;
+			}
+		}
+	}
 
 	public void showHelperText()
 	{

@@ -1009,7 +1009,7 @@ PrefabInstance:
     - target: {fileID: 7442810898443431828, guid: 4c575dd3548755f49b454b0834dc4fc6,
         type: 3}
       propertyPath: offsetPositionSpace
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7442810898443431828, guid: 4c575dd3548755f49b454b0834dc4fc6,
         type: 3}
