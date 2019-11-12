@@ -9,8 +9,6 @@ public class StoryTeller : MonoBehaviour
 {
 	public TextMeshProUGUI currentText;
 	public Dialogue dialogue;
-	private float timeToAppear = 2f;
-	private float timeWhenDisappear;
 
 	private Queue<string> sentences;
 

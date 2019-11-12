@@ -2,7 +2,28 @@ fileFormatVersion: 2
 guid: c7cd0a0c6764cb048a9095c8731341d3
 ModelImporter:
   serializedVersion: 26
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 1989289236423521904
+    second: Default Take
+  - first:
+      74: 4348485665485846014
+    second: Death
+  - first:
+      74: -3100369314251171874
+    second: Idle
+  - first:
+      74: 5539831331247536789
+    second: Jump
+  - first:
+      74: 5522812681064789136
+    second: Run
+  - first:
+      74: 2667949614841947897
+    second: Walk
+  - first:
+      74: -922632412418423487
+    second: WalkSlow
   externalObjects: {}
   materials:
     importMaterials: 1

@@ -14,6 +14,7 @@ public class TransformFollower : MonoBehaviour
 	[SerializeField] private bool b_smmoth = true;
 	[SerializeField] public float f_transitionTimeFinal = 10f;
 	[HideInInspector] public float f_transitionTime = 3f;
+	[HideInInspector] public bool stopFollowing = false;
 
 	private Vector3 TargetPosition;
 
@@ -64,33 +65,35 @@ public class TransformFollower : MonoBehaviour
         {
             return;
         }
-
-        // compute position
-        if (offsetPositionSpace == Space.Self)
-        {
-			if (b_offsetPositionDialog)
+		if (!stopFollowing)
+		{
+			// compute position
+			if (offsetPositionSpace == Space.Self)
 			{
-				TargetPosition = target.TransformPoint(offsetPosition + offsetPositionDialog);
+				if (b_offsetPositionDialog)
+				{
+					TargetPosition = target.TransformPoint(offsetPosition + offsetPositionDialog);
+				}
+				else
+				{
+					TargetPosition = target.TransformPoint(offsetPosition);
+				}
 			}
 			else
 			{
-				TargetPosition = target.TransformPoint(offsetPosition);
+				TargetPosition = target.position + offsetPosition;
 			}
-		}
-        else
-        {
-			TargetPosition = target.position + offsetPosition;
-        }
 
-		if (b_smmoth)
-		{
+			if (b_smmoth)
+			{
 
-			transform.position = Vector3.Lerp(transform.position, TargetPosition, f_transitionTime * Time.fixedDeltaTime);
+				transform.position = Vector3.Lerp(transform.position, TargetPosition, f_transitionTime * Time.fixedDeltaTime);
 
-		}
-		else
-		{
-			transform.position = TargetPosition;
+			}
+			else
+			{
+				transform.position = TargetPosition;
+			}
 		}
 
 		// compute rotation
