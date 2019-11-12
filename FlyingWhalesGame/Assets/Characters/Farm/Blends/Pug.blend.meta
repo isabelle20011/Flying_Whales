@@ -24,6 +24,12 @@ ModelImporter:
   - first:
       74: -922632412418423487
     second: WalkSlow
+  - first:
+      74: -8945691123924629249
+    second: Armature|Idle
+  - first:
+      74: 1079665108409675491
+    second: Armature|Jump
   externalObjects: {}
   materials:
     importMaterials: 1
