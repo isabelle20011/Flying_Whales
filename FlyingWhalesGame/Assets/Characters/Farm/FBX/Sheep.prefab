@@ -545,6 +545,7 @@ GameObject:
   - component: {fileID: 6549870794888409598}
   - component: {fileID: 6549870794888409599}
   - component: {fileID: 6549870794888409593}
+  - component: {fileID: 1862602175400840734}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Untagged
@@ -577,7 +578,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3009598480722700554}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 67d76a603841acd4d9505ec304a590b0, type: 3}
+  m_Avatar: {fileID: 9000000, guid: a249e61370771ec468ff721b21dd6603, type: 3}
   m_Controller: {fileID: 9100000, guid: 9830f2f1360f61041a3b65ab7e8d5259, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -613,10 +614,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 2.275968
+  m_Radius: 2.2170498
   m_Height: 6.6078873
   m_Direction: 2
-  m_Center: {x: -0.000000008396719, y: 2.18652, z: 0.4267006}
+  m_Center: {x: -0.000000014511923, y: 2.2454383, z: 0.4267006}
 --- !u!135 &6549870794888409599
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -652,6 +653,18 @@ MonoBehaviour:
     - I will create a portal for you where you can learn something new at the end
     - Go through it! Good luck!
   portal: {fileID: 0}
+--- !u!114 &1862602175400840734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3009598480722700554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff3dfc54681b2e4aaaa85f76c6b97a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3030951217794597618
 GameObject:
   m_ObjectHideFlags: 0
