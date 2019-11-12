@@ -5,14 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class DialogueManagerWithSceneChange : DialogueManager
 {
+	public LevelChanger2 level;
 	public override void EndDialogue()
 	{
 		base.EndDialogue();
 		Debug.Log("Scene Switch");
 		int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-		if (SceneManager.sceneCountInBuildSettings > nextSceneIndex)
-		{
-			SceneManager.LoadScene(nextSceneIndex);
-		}
+		level.FadeToLevel();
 	}
 }

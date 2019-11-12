@@ -9,6 +9,7 @@ TagManager:
   - PatrolNodes
   - BGM
   - BackgroundMusic
+  - HeartCanvas
   layers:
   - Default
   - TransparentFX
