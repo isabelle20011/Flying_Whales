@@ -30,6 +30,7 @@ namespace GameManager
         public bool isGameOver;
         public bool isMenuOn;
         public int  playerLives = 5;
+		public int  playerHealth = 4;
 
 		// continuity things
 		public bool momWasCalled = false;
@@ -49,6 +50,7 @@ namespace GameManager
         {
             if (RestartLevelEvent != null)
             {
+				Debug.Log("called");
                 RestartLevelEvent();
             }
         }

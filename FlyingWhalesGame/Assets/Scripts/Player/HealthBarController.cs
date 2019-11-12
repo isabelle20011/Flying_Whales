@@ -4,6 +4,8 @@
 
 using UnityEngine;
 using UnityEngine.UI;
+using GameManager;
+using UnityEngine.SceneManagement;
 
 public class HealthBarController : MonoBehaviour
 {
@@ -20,11 +22,19 @@ public class HealthBarController : MonoBehaviour
         heartFills = new Image[(int)PlayerHealth.Instance.MaxHealth];
 
         PlayerHealth.Instance.onHealthChangedCallback += UpdateHeartsHUD;
-        InstantiateHeartContainers();
+		GameManager_Master.Instance.RestartLevelEvent += UpdateHeartsHUD;
+		SceneManager.sceneLoaded += UpdateHeartsHUDS;
+		InstantiateHeartContainers();
         UpdateHeartsHUD();
     }
 
-    public void UpdateHeartsHUD()
+	public void UpdateHeartsHUDS(Scene scene, LoadSceneMode mode)
+	{
+		SetHeartContainers();
+		SetFilledHearts();
+	}
+
+	public void UpdateHeartsHUD()
     {
         SetHeartContainers();
         SetFilledHearts();
