@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4cb99e4c6ac3bf4e85d8b15e7b4610f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 1051977114274581166}
-  dialogueText: {fileID: 1051977115356591578}
+  nameText: {fileID: 2509718653624537961}
+  dialogueText: {fileID: 5190370404406098762}
   helperText: {fileID: 678138096206387402}
   canvas: {fileID: 1051977115603145168}
   dialogueBox: {fileID: 1051977114997100315}
@@ -57,11 +57,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 678138094630668834}
     m_Modifications:
-    - target: {fileID: 572067781041503472, guid: b73c574ffa408484ca7d5a3cb889fde5,
-        type: 3}
-      propertyPath: m_Name
-      value: DialogueCanvas
-      objectReference: {fileID: 0}
     - target: {fileID: 572067781041503474, guid: b73c574ffa408484ca7d5a3cb889fde5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -167,6 +162,98 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 572067781041503472, guid: b73c574ffa408484ca7d5a3cb889fde5,
+        type: 3}
+      propertyPath: m_Name
+      value: DialogueCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1307032785220057767, guid: b73c574ffa408484ca7d5a3cb889fde5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714949278456501867, guid: b73c574ffa408484ca7d5a3cb889fde5,
+        type: 3}
+      propertyPath: m_margin.w
+      value: -28.110043
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714949278456501867, guid: b73c574ffa408484ca7d5a3cb889fde5,
+        type: 3}
+      propertyPath: m_text
+      value: SomeText
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714949278456501867, guid: b73c574ffa408484ca7d5a3cb889fde5,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714949278456501867, guid: b73c574ffa408484ca7d5a3cb889fde5,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714949278456501867, guid: b73c574ffa408484ca7d5a3cb889fde5,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714949278456501867, guid: b73c574ffa408484ca7d5a3cb889fde5,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714949278456501867, guid: b73c574ffa408484ca7d5a3cb889fde5,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714949278456501867, guid: b73c574ffa408484ca7d5a3cb889fde5,
+        type: 3}
+      propertyPath: m_textAlignment
+      value: 513
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714949278456501867, guid: b73c574ffa408484ca7d5a3cb889fde5,
+        type: 3}
+      propertyPath: m_horizontalMapping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714949278456501867, guid: b73c574ffa408484ca7d5a3cb889fde5,
+        type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714949278456501867, guid: b73c574ffa408484ca7d5a3cb889fde5,
+        type: 3}
+      propertyPath: m_overflowMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714949278456501867, guid: b73c574ffa408484ca7d5a3cb889fde5,
+        type: 3}
+      propertyPath: m_verticalMapping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714949278456501867, guid: b73c574ffa408484ca7d5a3cb889fde5,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714949278456501867, guid: b73c574ffa408484ca7d5a3cb889fde5,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714949278456501867, guid: b73c574ffa408484ca7d5a3cb889fde5,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f772e09a44112646bfd8670d8cfe698,
+        type: 2}
+    - target: {fileID: 4714949278456501867, guid: b73c574ffa408484ca7d5a3cb889fde5,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 1618535258681920494, guid: 0f772e09a44112646bfd8670d8cfe698,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b73c574ffa408484ca7d5a3cb889fde5, type: 3}
 --- !u!224 &1051977115603145171 stripped
@@ -187,28 +274,28 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 678138095504272673}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1051977114274581166 stripped
+--- !u!114 &2509718653624537961 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 572067781958985615, guid: b73c574ffa408484ca7d5a3cb889fde5,
+  m_CorrespondingSourceObject: {fileID: 3151803754157145672, guid: b73c574ffa408484ca7d5a3cb889fde5,
     type: 3}
   m_PrefabInstance: {fileID: 678138095504272673}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1051977115356591578 stripped
+--- !u!114 &5190370404406098762 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 572067780893497595, guid: b73c574ffa408484ca7d5a3cb889fde5,
+  m_CorrespondingSourceObject: {fileID: 4714949278456501867, guid: b73c574ffa408484ca7d5a3cb889fde5,
     type: 3}
   m_PrefabInstance: {fileID: 678138095504272673}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &678138096206387402 stripped

@@ -59,11 +59,11 @@ public class PlayerHealth : MonoBehaviour
 
         // Set the initial health of the player.
         currentHealth = startingHealth;
-    }
+	}
 
     private void Start()
     {
-        playerLives = GameManager_Master.Instance.playerLives;
+		playerLives = GameManager_Master.Instance.playerLives;
 	}
 
     public void AddHealth()

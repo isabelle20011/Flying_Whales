@@ -13,6 +13,7 @@ namespace GameManager
         {
             GameManager_Master.Instance.PlayerDiedEvent += PlayerDied;
             GameManager_Master.Instance.LivesUIEvent += UpdateUI;
+			GameManager_Master.Instance.RestartLevelEvent += UpdateUI;
 
             if (LivesUI == null)
             {

@@ -31,6 +31,11 @@ namespace GameManager
         public bool isMenuOn;
         public int  playerLives = 5;
 
+		// continuity things
+		public bool momWasCalled = false;
+		public bool hasCrouch = false;
+		public bool hasSprint = false;
+
 
         public void CallEventMenuToggle()
         {
