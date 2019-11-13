@@ -14,7 +14,7 @@ public class DialogueTrigger : MonoBehaviour
         dialogueManager = FindObjectOfType<DialogueManager>();
     }
 
-    public void TriggerDialogue()
+    public virtual void TriggerDialogue()
     {
 		//finds the dialogue manager and feeds it our dialogue object with the name and sentences so we can put it on the screen!
 		dialogueManager.SetTrigger(this);
@@ -84,7 +84,7 @@ public class DialogueTrigger : MonoBehaviour
 
 	IEnumerator waitDialogue()
 	{
-		yield return new WaitForSeconds(0.1f);
+		yield return new WaitForSeconds(0.01f);
 		wasCalledThisFrame = false;
 	}
 
