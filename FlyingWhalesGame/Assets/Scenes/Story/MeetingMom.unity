@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: d66f49f975934ee4b8a7500906c7a759, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: e222162ddb8d34547a133b673221b195, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -447,12 +447,12 @@ PrefabInstance:
     - target: {fileID: 8975189445986365348, guid: e6761afb921ea4047955ff1d6671b869,
         type: 3}
       propertyPath: offsetPosition.z
-      value: -5
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 8975189445986365348, guid: e6761afb921ea4047955ff1d6671b869,
         type: 3}
       propertyPath: offsetPosition.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8975189445986365348, guid: e6761afb921ea4047955ff1d6671b869,
         type: 3}
@@ -662,15 +662,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -6797699307782160408, guid: 51ec67c3f8f178e4d8ccd5551eb2d5ce,
-        type: 3}
-      propertyPath: NeedForSeconds
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2842394939691452565, guid: 51ec67c3f8f178e4d8ccd5551eb2d5ce,
         type: 3}
       propertyPath: m_Name
       value: LevelChanger2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6797699307782160408, guid: 51ec67c3f8f178e4d8ccd5551eb2d5ce,
+        type: 3}
+      propertyPath: NeedForSeconds
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2842394939691452563, guid: 51ec67c3f8f178e4d8ccd5551eb2d5ce,
         type: 3}
