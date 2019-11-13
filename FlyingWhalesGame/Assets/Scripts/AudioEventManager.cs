@@ -10,14 +10,17 @@ public class AudioEventManager : MonoBehaviour
 
 	public AudioClip attackAudio;
 	public AudioClip damageAudio;
+	public AudioClip sheepAudio;
 
 	private UnityAction<Vector3> attackSoundEventListener;
 	private UnityAction<Vector3> damageSoundEventListener;
+	private UnityAction<Vector3> sheepSoundEventListener;
 
 	void Awake()
 	{
 		attackSoundEventListener = new UnityAction<Vector3>(attackSoundEventHandler);
 		damageSoundEventListener = new UnityAction<Vector3>(damageSoundEventHandler);
+		sheepSoundEventListener  = new UnityAction<Vector3>(sheepSoundEventHandler);
 	}
 
 
@@ -31,6 +34,7 @@ public class AudioEventManager : MonoBehaviour
 	{
 		EventManager.StartListening<attackSoundEvent, Vector3>(attackSoundEventListener);
 		EventManager.StartListening<damageSoundEvent, Vector3>(damageSoundEventListener);
+		EventManager.StartListening<sheepSoundEvent, Vector3>(sheepSoundEventListener);
 
 	}
 
@@ -38,6 +42,7 @@ public class AudioEventManager : MonoBehaviour
 	{
 		EventManager.StopListening<attackSoundEvent, Vector3>(attackSoundEventListener);
 		EventManager.StartListening<damageSoundEvent, Vector3>(damageSoundEventListener);
+		EventManager.StartListening<sheepSoundEvent, Vector3>(sheepSoundEventListener);
 	}
 
 	void attackSoundEventHandler(Vector3 pos)
@@ -69,6 +74,22 @@ public class AudioEventManager : MonoBehaviour
 
 			snd.audioSrc.minDistance = 5f;
 			snd.audioSrc.maxDistance = 100f;
+
+			snd.audioSrc.Play();
+		}
+	}
+
+	void sheepSoundEventHandler(Vector3 pos)
+	{
+
+		if (sheepAudio)
+		{
+
+			EventSound3D snd = Instantiate(eventSound3DPrefab, pos, Quaternion.identity, null);
+			snd.audioSrc.clip = this.sheepAudio;
+
+			snd.audioSrc.minDistance = 5f;
+			snd.audioSrc.maxDistance = 50f;
 
 			snd.audioSrc.Play();
 		}

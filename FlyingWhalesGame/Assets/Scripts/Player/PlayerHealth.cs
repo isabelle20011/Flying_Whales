@@ -8,9 +8,9 @@ public class PlayerHealth : MonoBehaviour
     public delegate void OnHealthChangedDelegate();
     public OnHealthChangedDelegate onHealthChangedCallback;
 
-    [SerializeField] private int startingHealth = 1;                              // The amount of health the player starts the game with.
-    [SerializeField] private int currentHealth;                                   // The current health the player has.
-    [SerializeField] private int maxHealth = 4;
+    private int startingHealth;                              // The amount of health the player starts the game with.
+    [SerializeField]private int currentHealth;                                   // The current health the player has.
+    private int maxHealth = 4;
     public AudioClip deathClip;
     public AudioClip damageClip;
     public AudioClip healingClip;
@@ -56,14 +56,16 @@ public class PlayerHealth : MonoBehaviour
 		{
 			Debug.LogWarning("No death music found");
 		}
-
+		startingHealth = GameManager_Master.Instance.playerHealth;
         // Set the initial health of the player.
         currentHealth = startingHealth;
-    }
+	}
 
     private void Start()
     {
-        playerLives = GameManager_Master.Instance.playerLives;
+		playerLives = GameManager_Master.Instance.playerLives;
+		if (onHealthChangedCallback != null)
+			onHealthChangedCallback.Invoke();
 	}
 
     public void AddHealth()
@@ -87,7 +89,6 @@ public class PlayerHealth : MonoBehaviour
     private void Update()
     {
 	}
-
 
     public void TakeDamage()
     {

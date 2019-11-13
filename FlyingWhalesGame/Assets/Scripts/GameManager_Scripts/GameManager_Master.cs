@@ -30,6 +30,12 @@ namespace GameManager
         public bool isGameOver;
         public bool isMenuOn;
         public int  playerLives = 5;
+		public int  playerHealth = 4;
+
+		// continuity things
+		public bool momWasCalled = false;
+		public bool hasCrouch = false;
+		public bool hasSprint = false;
 
 
         public void CallEventMenuToggle()
@@ -44,6 +50,7 @@ namespace GameManager
         {
             if (RestartLevelEvent != null)
             {
+				Debug.Log("called");
                 RestartLevelEvent();
             }
         }

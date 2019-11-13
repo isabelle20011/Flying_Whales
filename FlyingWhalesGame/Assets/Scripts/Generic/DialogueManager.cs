@@ -6,11 +6,14 @@ using TMPro;
 //made by Daniel Otaigbe
 public class DialogueManager : MonoBehaviour
 {
-    public Text nameText;
-    public Text dialogueText;
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI dialogueText;
 	public TextMeshProUGUI helperText;
     public Canvas canvas;
 	public GameObject dialogueBox;
+	private TransformFollower cameraScript;
+	private GameObject player;
+	private DialogueTrigger trigger;
 
     private Queue<string> sentences; //works like a list, but more restricted. It's FIFO (First in, First Out) so new sentences are loaded from the end of the queu
     public bool inConvo = false;
@@ -20,6 +23,25 @@ public class DialogueManager : MonoBehaviour
     {
         sentences = new Queue<string>();
         canvas.enabled = false;
+		player = GameObject.FindGameObjectWithTag("Player");
+		if (player == null)
+		{
+			Debug.LogWarning("No player found");
+		}
+
+
+		if (Camera.main)
+		{
+			cameraScript = Camera.main.GetComponent<TransformFollower>();
+			if (cameraScript == null)
+			{
+				Debug.LogWarning("No main camera follower script");
+			}
+		}
+		else
+		{
+			Debug.LogWarning("No main camera");
+		}
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -33,6 +55,8 @@ public class DialogueManager : MonoBehaviour
         {
             sentences.Enqueue(sentence); //adds all the sentences to the queue
         }
+		cameraScript.b_offsetPositionDialog = true;
+		cameraScript.f_transitionTime = 5f;
 		canvas.enabled = true;
 		dialogueBox.gameObject.SetActive(true);
 		DisplayNextSentence();
@@ -51,11 +75,29 @@ public class DialogueManager : MonoBehaviour
 		dialogueText.text = sentence;
     }
 
-    public virtual void EndDialogue()
-    {
+	public virtual void EndDialogue()
+	{
+		cameraScript.b_offsetPositionDialog = false;
+		cameraScript.f_transitionTime = cameraScript.f_transitionTimeFinal;
 		dialogueBox.gameObject.SetActive(false);
+		trigger.OnTriggerEnd();
 		Debug.Log("End of conversation.");
-    }
+
+		PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+		simplePlayerMovement sPlayerMovement = player.GetComponent<simplePlayerMovement>();
+		if (playerMovement || sPlayerMovement)
+		{
+			if (playerMovement)
+			{
+				playerMovement.enabled = true;
+			}
+			else
+			{
+				sPlayerMovement.enabled = true;
+			}
+		}
+		SetTrigger(null);
+	}
 
 	public void showHelperText()
 	{
@@ -65,5 +107,10 @@ public class DialogueManager : MonoBehaviour
 	public void hideHelperText()
 	{
 		canvas.enabled = false;
+	}
+
+	public void SetTrigger(DialogueTrigger triggerD)
+	{
+		trigger = triggerD;
 	}
 }

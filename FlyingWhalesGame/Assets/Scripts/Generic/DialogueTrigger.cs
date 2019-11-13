@@ -6,21 +6,27 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
-    private DialogueManager dialogueManager;
-	private bool wasCalledThisFrame = false;
+	protected DialogueManager dialogueManager;
+	protected bool wasCalledThisFrame = false;
 
-    private void Start()
+    protected virtual void Start()
     {
         dialogueManager = FindObjectOfType<DialogueManager>();
     }
 
-    public void TriggerDialogue()
+    public virtual void TriggerDialogue()
     {
-        //finds the dialogue manager and feeds it our dialogue object with the name and sentences so we can put it on the screen!
+		//finds the dialogue manager and feeds it our dialogue object with the name and sentences so we can put it on the screen!
+		dialogueManager.SetTrigger(this);
         dialogueManager.StartDialogue(dialogue);
     }
 
-    private void OnTriggerStay(Collider other)
+	public virtual void OnTriggerEnd()
+	{
+
+	}
+
+	protected virtual void OnTriggerStay(Collider other)
     {
         //we can add another if statement here for a layer or tag of game objects you can talk to so we don't do component calls all the time
         if (other.tag == "Player")
@@ -29,7 +35,7 @@ public class DialogueTrigger : MonoBehaviour
 			simplePlayerMovement sPlayerMovement = other.GetComponent<simplePlayerMovement>();
 			if (playerMovement || sPlayerMovement)
 			{
-				; if (Input.GetButtonUp("Interact") && !dialogueManager.inConvo && !wasCalledThisFrame)
+				if (Input.GetButtonUp("Interact") && !dialogueManager.inConvo && !wasCalledThisFrame)
 				{
 					Debug.Log("trigger");
 					TriggerDialogue();
@@ -52,17 +58,6 @@ public class DialogueTrigger : MonoBehaviour
 					wasCalledThisFrame = true;
 					StartCoroutine(waitDialogue());
 
-				}
-				else if (Input.GetButtonUp("Interact") && !dialogueManager.inConvo)
-				{
-					if (playerMovement)
-					{
-						playerMovement.enabled = true;
-					}
-					else
-					{
-						sPlayerMovement.enabled = true;
-					}
 				}
 
 				if (dialogueManager.inConvo)
@@ -89,7 +84,7 @@ public class DialogueTrigger : MonoBehaviour
 
 	IEnumerator waitDialogue()
 	{
-		yield return new WaitForSeconds(0.1f);
+		yield return new WaitForSeconds(0.01f);
 		wasCalledThisFrame = false;
 	}
 
@@ -102,7 +97,7 @@ public class DialogueTrigger : MonoBehaviour
 		}
 	}
 
-	private void OnTriggerExit(Collider other)
+	protected virtual void OnTriggerExit(Collider other)
 	{
 		//we can add another if statement here for a layer or tag of game objects you can talk to so we don't do component calls all the time
 		if (other.tag == "Player")

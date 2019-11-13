@@ -9,8 +9,7 @@ public class StoryTeller : MonoBehaviour
 {
 	public TextMeshProUGUI currentText;
 	public Dialogue dialogue;
-	private float timeToAppear = 2f;
-	private float timeWhenDisappear;
+	public LevelChanger2 level;
 
 	private Queue<string> sentences;
 
@@ -53,9 +52,8 @@ public class StoryTeller : MonoBehaviour
 		currentText.text = sentence;
 
 	}
-
 	void EndDialogue()
 	{
-		SceneManager.LoadScene(2);
+		level.FadeToLevel();
 	}
 }
