@@ -4,6 +4,7 @@ using System.Collections;
 
 public class HealPlayer : MonoBehaviour
 {
+	public bool givelife = false;
     GameObject player;                          // Reference to the player GameObject.
     PlayerHealth playerHealth;                  // Reference to the player's health.
     bool playerInRange;                         // Whether player is within the trigger collider and can be attacked.
@@ -44,7 +45,14 @@ public class HealPlayer : MonoBehaviour
     {
         if (playerInRange)
         {
-            Heal();
+			if (givelife)
+			{
+				GiveLife();
+			}
+			else
+			{
+				Heal();
+			}
         }
     }
 
@@ -54,7 +62,16 @@ public class HealPlayer : MonoBehaviour
         if (playerHealth.PlayerAlive())
         {
             playerHealth.AddHealth();
-        }
+		}
         Destroy(gameObject);
     }
+
+	void GiveLife()
+	{
+		if (playerHealth.PlayerAlive())
+		{
+			playerHealth.GiveLife();
+		}
+		Destroy(gameObject);
+	}
 }

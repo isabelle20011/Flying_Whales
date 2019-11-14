@@ -5,7 +5,7 @@ using UnityEngine;
 public class PortalAppear : MonoBehaviour
 {
 	[SerializeField]private ParticleSystem particle;
-	[SerializeField]private MeshRenderer mesh;
+	[SerializeField]private MeshRenderer[] meshes;
 	private void OnEnable()
 	{
 		Debug.Log("called");
@@ -21,9 +21,12 @@ public class PortalAppear : MonoBehaviour
 	IEnumerator waitForParticle()
 	{
 		yield return new WaitForSeconds(0.3f);
-		if (mesh)
+		if (meshes.Length > 0)
 		{
-			mesh.enabled = true;
+			foreach (MeshRenderer mesh in meshes)
+			{
+				mesh.enabled = true;
+			}
 		}
 		else
 		{

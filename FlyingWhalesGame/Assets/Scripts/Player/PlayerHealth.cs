@@ -85,6 +85,18 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+	public void GiveLife()
+	{
+		playerLives++;
+		GameManager_Master.Instance.playerLives = playerLives;
+		GameManager_Master.Instance.CallLivesUI();
+		if (healingClip != null)
+		{
+			playerAudio.clip = healingClip;
+			playerAudio.Play();
+		}
+	}
+
 
     private void Update()
     {
