@@ -12,10 +12,14 @@ public class DialogueTriggerPortal : DialogueTrigger
 		base.Start();
 		colliders = GetComponents<Collider>();
 	}
+	public override void OnDoSomething()
+	{
+		base.OnDoSomething();
+		portal.SetActive(true);
+	}
+
 	public override void OnTriggerEnd()
 	{
-		base.OnTriggerEnd();
-		portal.SetActive(true);
 		this.enabled = false;
 		foreach (Collider collider in colliders)
 		{

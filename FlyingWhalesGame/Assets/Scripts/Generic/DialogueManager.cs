@@ -15,7 +15,8 @@ public class DialogueManager : MonoBehaviour
 	private GameObject player;
 	private DialogueTrigger trigger;
 
-    private Queue<string> sentences; //works like a list, but more restricted. It's FIFO (First in, First Out) so new sentences are loaded from the end of the queu
+    private Queue<string> sentences; //works like a list, but more restricted. It's FIFO (First in, First Out) so new sentences are loaded from the end of the queue
+	private int sentencesNum;
     public bool inConvo = false;
 
     // Start is called before the first frame update
@@ -55,6 +56,7 @@ public class DialogueManager : MonoBehaviour
         {
             sentences.Enqueue(sentence); //adds all the sentences to the queue
         }
+		sentencesNum = sentences.Count;
 		cameraScript.b_offsetPositionDialog = true;
 		cameraScript.f_transitionTime = 5f;
 		canvas.enabled = true;
@@ -70,6 +72,11 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
             return;
         }
+		if (sentences.Count == sentencesNum - trigger.doSomething)
+		{
+			trigger.OnDoSomething();
+		}
+
 		inConvo = true;
 		string sentence = sentences.Dequeue(); //removes and returns the first object of the queue
 		dialogueText.text = sentence;

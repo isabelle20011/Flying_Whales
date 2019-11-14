@@ -6,7 +6,32 @@ ModelImporter:
   - first:
       74: 1989289236423521904
     second: Default Take
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Goat
+    second: {fileID: 2100000, guid: 2ce4efbe9c6767641a8960dc66dcd206, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Goat Black
+    second: {fileID: 2100000, guid: d3b94433d4c37c4439fbf9ff4a9c6af2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Goat Claws
+    second: {fileID: 2100000, guid: 17784ba4206cd8a4596be175bd7a503a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Goat Horn
+    second: {fileID: 2100000, guid: 85c3f722f1e359d4bacb799e24ab503a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: e93c7c6bef69ff249b7b2c1630ac1f9c, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
