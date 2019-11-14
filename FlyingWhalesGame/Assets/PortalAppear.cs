@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PortalAppear : MonoBehaviour
 {
-	public ParticleSystem particle;
+	[SerializeField]private ParticleSystem particle;
+	[SerializeField]private MeshRenderer mesh;
 	private void OnEnable()
 	{
 		Debug.Log("called");
@@ -12,15 +13,22 @@ public class PortalAppear : MonoBehaviour
 		{
 			particle.transform.parent = null;
 			particle.Play();
-			Destroy(particle.gameObject, particle.main.duration);
+			Destroy(particle.gameObject, particle.main.duration+ 0.1f);
 		}
 		StartCoroutine(waitForParticle());
 	}
 
 	IEnumerator waitForParticle()
 	{
-		yield return new WaitForSeconds(0.2f);
-		GetComponent<MeshRenderer>().enabled = true;
+		yield return new WaitForSeconds(0.3f);
+		if (mesh)
+		{
+			mesh.enabled = true;
+		}
+		else
+		{
+			Debug.LogWarning("no mesh");
+		}
 		
 	}
 }

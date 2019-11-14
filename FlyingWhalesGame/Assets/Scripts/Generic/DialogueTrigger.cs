@@ -8,6 +8,7 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue dialogue;
 	protected DialogueManager dialogueManager;
 	protected bool wasCalledThisFrame = false;
+	public int doSomething = -1;
 
     protected virtual void Start()
     {
@@ -22,6 +23,11 @@ public class DialogueTrigger : MonoBehaviour
     }
 
 	public virtual void OnTriggerEnd()
+	{
+
+	}
+
+	public virtual void OnDoSomething()
 	{
 
 	}
