@@ -22,6 +22,7 @@ public class LevelEnd : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
+			Debug.Log("Entered");
 			PlayerMovement playerMovement = other.GetComponent<PlayerMovement>();
 			NavMeshAgent agent = other.GetComponent<NavMeshAgent>();
 			Animator animator = other.GetComponentInChildren<Animator>();
