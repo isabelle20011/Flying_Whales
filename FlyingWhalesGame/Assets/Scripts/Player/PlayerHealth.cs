@@ -117,6 +117,7 @@ public class PlayerHealth : MonoBehaviour
         {
             playerAudio.clip = damageClip;
             playerAudio.Play();
+			anim.SetTrigger("Damage");
         }
     }
 

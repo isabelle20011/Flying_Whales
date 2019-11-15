@@ -19,8 +19,23 @@ namespace GameManager
         }
         private void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
         {
-            GameManager_Master.Instance.CallLivesUI();
-        }
+			Debug.Log("Level Loaded");
+			Debug.Log(scene.name);
+			Debug.Log(mode);
 
+			GameManager_Master.Instance.CallLivesUI();
+
+			GameObject player = GameObject.FindGameObjectWithTag("Player");
+			if (player)
+			{
+				PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+				if (playerMovement)
+				{
+					playerMovement.allowCrouch = GameManager_Master.Instance.hasCrouch;
+					playerMovement.allowSprinting = GameManager_Master.Instance.hasSprint;
+					playerMovement.allowAttack = GameManager_Master.Instance.hasAttack;
+				}
+			}
+		}
     }
 }
