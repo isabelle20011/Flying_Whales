@@ -2,12 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using GameManager;
+using TMPro;
 
 public class allowAbility : MonoBehaviour
 {
     public bool attack;
     public bool sprinting;
     public bool crouching;
+
+	[SerializeField] private GameObject canvas;
+	[SerializeField] private TextMeshProUGUI text;
+	private bool changed = false;
+	private PlayerMovement playerMovement;
+	private string button;
+	private string ability;
 
 	private void Start()
 	{
@@ -29,28 +37,43 @@ public class allowAbility : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PlayerMovement playerMovement = other.GetComponent<PlayerMovement>();
+            playerMovement = other.GetComponent<PlayerMovement>();
             if (playerMovement != null)
             {
-                Debug.Log("Got here");
                 if (sprinting)
                 {
 					playerMovement.allowSprinting = true;
 					GameManager_Master.Instance.hasSprint = true;
+					changed = true;
+					button = "SHIFT";
+					ability = "Sprint";
 				}
                 else if (attack)
                 {
 					playerMovement.allowAttack = true;
 					GameManager_Master.Instance.hasAttack = true;
+					changed = true;
+					button = "CTRL or Left Click";
+					ability = "Attack";
 				}
                 else if (crouching)
                 {
                     playerMovement.allowCrouch = true;
 					GameManager_Master.Instance.hasCrouch = true;
+					changed = true;
+					button = "ALT or Right Click";
+					ability = "Crouch";
 
-                }
-
+				}
+				if (changed)
+				{
+					canvas.SetActive(true);
+					text.SetText("You can now press " + button + " to " + ability);
+					playerMovement.enabled = false;
+					Time.timeScale = 0;
+				}
             }
-        }
-    }
+			changed = false;
+		}
+	}
 }

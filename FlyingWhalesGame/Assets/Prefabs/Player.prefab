@@ -135,7 +135,7 @@ Transform:
   m_GameObject: {fileID: 6585056261439733219}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.02, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 2859588201230202415}
   - {fileID: 3063892047101403619}
@@ -182,6 +182,8 @@ MonoBehaviour:
   Drag: {x: 5, y: 0, z: 5}
   m_Jump: 0
   allowCrouch: 0
+  allowSprinting: 0
+  allowAttack: 0
 --- !u!54 &6585056261439733228
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -210,9 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7475f2e5a2e8e74c859837443351a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 4
   currentHealth: 0
-  maxHealth: 4
   deathClip: {fileID: 8300000, guid: 9327ba449f593a549838fab7db2cbc65, type: 3}
   damageClip: {fileID: 8300000, guid: 75c0e9677edf48549a9f8d06267949ab, type: 3}
   healingClip: {fileID: 8300000, guid: 62244b5fcc6e84745a59f35ad30bf637, type: 3}

@@ -19439,6 +19439,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2afa2bf377bd7e418782bedb6b52632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doubleJump: 0
+  attack: 0
   sprinting: 0
-  crouching: 1
+  crouching: 0
+  canvas: {fileID: 0}
+  text: {fileID: 0}

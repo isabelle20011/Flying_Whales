@@ -15,7 +15,10 @@ public class DialogueTriggerPortal : DialogueTrigger
 	public override void OnDoSomething()
 	{
 		base.OnDoSomething();
-		portal.SetActive(true);
+		if (portal)
+		{
+			portal.SetActive(true);
+		}
 	}
 
 	public override void OnTriggerEnd()
