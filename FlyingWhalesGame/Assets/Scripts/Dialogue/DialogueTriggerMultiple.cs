@@ -7,17 +7,31 @@ public class DialogueTriggerMultiple : DialogueTrigger
 	public Dialogue[] dialogues;
 	private int previous = -1;
 	private int previous2 = -1;
+	private bool wentOnce = false;
+	private int index = -1;
 
 	public override void TriggerDialogue()
 	{
-		int randomInd = Random.Range(0, dialogues.Length);
-		while (randomInd == previous || randomInd == previous2)
+		int index = -1;
+		if (!wentOnce)
 		{
-			randomInd = Random.Range(0, dialogues.Length);
+			if (index == dialogues.Length - 2)
+			{
+				wentOnce = true;
+			}
+			index++;
 		}
-		previous2 = previous;
-		previous = randomInd;
-		dialogue = dialogues[randomInd];
+		else
+		{
+			index = Random.Range(0, dialogues.Length);
+			while (index == previous || index == previous2)
+			{
+				index = Random.Range(0, dialogues.Length);
+			}
+			previous2 = previous;
+			previous = index;
+		}
+		dialogue = dialogues[index];
 		base.TriggerDialogue();
 	}
 }
