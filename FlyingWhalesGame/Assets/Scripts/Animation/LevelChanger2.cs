@@ -32,7 +32,7 @@ public class LevelChanger2 : MonoBehaviour
 
 	IEnumerator waitSeconds()
 	{
-		yield return new WaitForSeconds(2f);
+		yield return new WaitForSeconds(1.5f);
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 	}
 }

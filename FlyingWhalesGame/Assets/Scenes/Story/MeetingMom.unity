@@ -745,8 +745,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 938223853, guid: 51ec67c3f8f178e4d8ccd5551eb2d5ce, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4278190080
+      value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 938223853, guid: 51ec67c3f8f178e4d8ccd5551eb2d5ce, type: 3}
+      propertyPath: m_margin.z
+      value: -346.5912
+      objectReference: {fileID: 0}
+    - target: {fileID: 938223853, guid: 51ec67c3f8f178e4d8ccd5551eb2d5ce, type: 3}
+      propertyPath: m_margin.x
+      value: -328.80777
+      objectReference: {fileID: 0}
+    - target: {fileID: 938223853, guid: 51ec67c3f8f178e4d8ccd5551eb2d5ce, type: 3}
+      propertyPath: m_margin.y
+      value: -155.23755
+      objectReference: {fileID: 0}
+    - target: {fileID: 938223853, guid: 51ec67c3f8f178e4d8ccd5551eb2d5ce, type: 3}
+      propertyPath: m_margin.w
+      value: -145.53029
+      objectReference: {fileID: 0}
+    - target: {fileID: 938223853, guid: 51ec67c3f8f178e4d8ccd5551eb2d5ce, type: 3}
+      propertyPath: m_fontSize
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 938223853, guid: 51ec67c3f8f178e4d8ccd5551eb2d5ce, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 938223853, guid: 51ec67c3f8f178e4d8ccd5551eb2d5ce, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f772e09a44112646bfd8670d8cfe698,
+        type: 2}
+    - target: {fileID: 938223853, guid: 51ec67c3f8f178e4d8ccd5551eb2d5ce, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 1618535258681920494, guid: 0f772e09a44112646bfd8670d8cfe698,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51ec67c3f8f178e4d8ccd5551eb2d5ce, type: 3}
 --- !u!114 &1274990927 stripped
@@ -1630,6 +1664,53 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Some Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069693908601102636, guid: 2b3b15818683e0848ba499fce382e1a1,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 32aff99d9c9a0cf4eb2234857d48d918,
+        type: 2}
+    - target: {fileID: 2069693908601102636, guid: 2b3b15818683e0848ba499fce382e1a1,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8450599489767879378, guid: 32aff99d9c9a0cf4eb2234857d48d918,
+        type: 2}
+    - target: {fileID: 2069693908601102636, guid: 2b3b15818683e0848ba499fce382e1a1,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069693908601102636, guid: 2b3b15818683e0848ba499fce382e1a1,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069693908601102636, guid: 2b3b15818683e0848ba499fce382e1a1,
+        type: 3}
+      propertyPath: m_margin.z
+      value: -169.78513
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069693908601102636, guid: 2b3b15818683e0848ba499fce382e1a1,
+        type: 3}
+      propertyPath: m_margin.x
+      value: -170.74677
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069693908601102636, guid: 2b3b15818683e0848ba499fce382e1a1,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069693908601102636, guid: 2b3b15818683e0848ba499fce382e1a1,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069693908601102638, guid: 2b3b15818683e0848ba499fce382e1a1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b3b15818683e0848ba499fce382e1a1, type: 3}

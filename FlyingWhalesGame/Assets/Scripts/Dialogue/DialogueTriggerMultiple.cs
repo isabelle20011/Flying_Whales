@@ -12,7 +12,6 @@ public class DialogueTriggerMultiple : DialogueTrigger
 
 	public override void TriggerDialogue()
 	{
-		int index = -1;
 		if (!wentOnce)
 		{
 			if (index == dialogues.Length - 2)

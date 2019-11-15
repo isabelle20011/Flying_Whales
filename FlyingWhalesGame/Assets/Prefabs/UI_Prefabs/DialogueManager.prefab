@@ -62,6 +62,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 775665131, guid: b73c574ffa408484ca7d5a3cb889fde5, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 32aff99d9c9a0cf4eb2234857d48d918,
+        type: 2}
+    - target: {fileID: 775665131, guid: b73c574ffa408484ca7d5a3cb889fde5, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8450599489767879378, guid: 32aff99d9c9a0cf4eb2234857d48d918,
+        type: 2}
+    - target: {fileID: 775665131, guid: b73c574ffa408484ca7d5a3cb889fde5, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 775665131, guid: b73c574ffa408484ca7d5a3cb889fde5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 775665131, guid: b73c574ffa408484ca7d5a3cb889fde5, type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 572067780431389242, guid: b73c574ffa408484ca7d5a3cb889fde5,
         type: 3}
       propertyPath: m_IsActive
