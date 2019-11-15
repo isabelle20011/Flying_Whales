@@ -33,9 +33,11 @@ public class PlayerMovement : MonoBehaviour
     private bool  m_Dash;
 
     public bool allowCrouch;
+	public bool allowSprinting;
+	public bool allowAttack;
 
-    // Use this for initialization
-    private void Start()
+	// Use this for initialization
+	private void Start()
     {
         m_Animator = GetComponentInChildren<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
@@ -52,7 +54,10 @@ public class PlayerMovement : MonoBehaviour
     {
         Move();
         Jump();
-        Sprint();
+		if (allowSprinting)
+		{
+			Sprint();
+		}
         if (allowCrouch)
         {
             Dash();
@@ -60,7 +65,10 @@ public class PlayerMovement : MonoBehaviour
         }
         Gravity();
         Rotate();
-        Attack();
+		if (allowAttack)
+		{
+			Attack();
+		}
 
         // Apply move vector
         m_Controller.Move(this.transform.forward * m_InputForward * Time.deltaTime * m_moveSpeed);
@@ -88,12 +96,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (Input.GetButtonDown("Jump") && !m_Jump && !m_Crouching)
+        if (Input.GetButtonDown("Jump") && !m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
         {
             Debug.Log("Jump");
             m_Move.y = jumpHeight;
-            m_Jump = true;
-        }
+			m_Animator.SetTrigger("Jump");
+		}
     }
 
     private void Sprint()
@@ -171,7 +179,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Attack()
     {
-        if (Input.GetButtonDown("Fire1") && !m_Crouching && !m_Jump)
+        if (Input.GetButtonDown("Fire1"))
         {
             Debug.Log("Attack");
 			m_Animator.SetTrigger("Attack");
@@ -184,7 +192,6 @@ public class PlayerMovement : MonoBehaviour
         m_Animator.SetFloat("Forward", m_InputForward, 0.1f, Time.deltaTime);
         m_Animator.SetFloat("Turn", m_InputTurn, 0.1f, Time.deltaTime);
         m_Animator.SetBool("Crouch", m_Crouching);
-        m_Animator.SetBool("Jump", m_Jump);
         m_Animator.SetBool("Sprinting", m_Sprint);
         m_Animator.SetBool("Dash", m_Dash);
     }
@@ -193,10 +200,5 @@ public class PlayerMovement : MonoBehaviour
     {
         //change it to check animation instead
         return m_Sprint || m_Dash || m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Attack");
-    }
-    
-    public void toggleJump()
-    {
-        m_Jump = false;
     }
 }

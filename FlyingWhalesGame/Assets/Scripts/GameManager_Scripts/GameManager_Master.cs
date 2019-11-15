@@ -36,9 +36,11 @@ namespace GameManager
 		public bool momWasCalled = false;
 		public bool hasCrouch = false;
 		public bool hasSprint = false;
+		public bool hasAttack = false;
 
 
-        public void CallEventMenuToggle()
+
+		public void CallEventMenuToggle()
         {
             if (MenuToggleEvent != null)
             {
