@@ -33,4 +33,18 @@ public class DialogueTriggerMultiple : DialogueTrigger
 		dialogue = dialogues[index];
 		base.TriggerDialogue();
 	}
+
+	protected override void deleteExclamation()
+	{
+		if (index == dialogues.Length - 1)
+		{
+			if (exclamation.Length > 0)
+			{
+				foreach (GameObject excla in exclamation)
+				{
+					excla.SetActive(false);
+				}
+			}
+		}
+	}
 }
