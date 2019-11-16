@@ -9,8 +9,20 @@ public class DialogueTrigger : MonoBehaviour
 	protected DialogueManager dialogueManager;
 	protected bool wasCalledThisFrame = false;
 	public int doSomething = -1;
+	[SerializeField] protected GameObject[] exclamation;
 
-    protected virtual void Start()
+	protected virtual void deleteExclamation()
+	{
+		if (exclamation.Length > 0)
+		{
+			foreach (GameObject excla in exclamation)
+			{
+				excla.SetActive(false);
+			}
+		}
+	}
+
+	protected virtual void Start()
     {
         dialogueManager = FindObjectOfType<DialogueManager>();
     }
@@ -41,10 +53,11 @@ public class DialogueTrigger : MonoBehaviour
 			simplePlayerMovement sPlayerMovement = other.GetComponent<simplePlayerMovement>();
 			if (playerMovement || sPlayerMovement)
 			{
-				if (Input.GetButtonUp("Interact") && !dialogueManager.inConvo && !wasCalledThisFrame)
+				if (Input.GetButtonDown("Interact") && !dialogueManager.inConvo && !wasCalledThisFrame)
 				{
 					Debug.Log("trigger");
 					TriggerDialogue();
+					deleteExclamation();
 					wasCalledThisFrame = true;
 					StartCoroutine(waitDialogue());
 					if (playerMovement)
@@ -57,7 +70,7 @@ public class DialogueTrigger : MonoBehaviour
 						sPlayerMovement.enabled = false;
 					}
 				}
-				else if (Input.GetButtonUp("Interact") && dialogueManager.inConvo && !wasCalledThisFrame)
+				else if (Input.GetButtonDown("Interact") && dialogueManager.inConvo && !wasCalledThisFrame)
 				{
 					Debug.Log("displayNext");
 					dialogueManager.DisplayNextSentence();

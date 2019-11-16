@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
 {
@@ -21,14 +18,4 @@ public class DontDestroy : MonoBehaviour
 		}
 		DontDestroyOnLoad(this.gameObject);
 	}
-
-    /* (by Sabin Kim) probably not the most efficient way, but it stops the Intro Cutscene Music when the
-        actual gameplay begins */
-    private void Update()
-    {
-        if (SceneManager.GetActiveScene().name == "OpenMap")
-        {
-            Destroy(this.gameObject);
-        }
-    }
 }

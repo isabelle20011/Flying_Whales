@@ -562,7 +562,7 @@ Transform:
   m_GameObject: {fileID: 3009598480722700554}
   m_LocalRotation: {x: -0.04175201, y: 0.39674473, z: 0.018068144, w: 0.9168009}
   m_LocalPosition: {x: 30.03, y: 1.1041794, z: -3.94}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.50000006}
   m_Children:
   - {fileID: 2535929706885075095}
   - {fileID: 8490547348399910637}
@@ -652,6 +652,10 @@ MonoBehaviour:
     - It will be dangerous, but don't be scared
     - I will create a portal for you where you can learn something new at the end
     - Go through it! Good luck!
+  doSomething: 5
+  exclamation:
+  - {fileID: 0}
+  - {fileID: 0}
   portal: {fileID: 0}
 --- !u!114 &1862602175400840734
 MonoBehaviour:

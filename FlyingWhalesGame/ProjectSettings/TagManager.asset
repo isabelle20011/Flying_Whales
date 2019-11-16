@@ -7,7 +7,6 @@ TagManager:
   - Enemy
   - Talker
   - PatrolNodes
-  - BGM
   - BackgroundMusic
   - HeartCanvas
   layers:
