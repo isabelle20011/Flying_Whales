@@ -398,7 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkingSpeed: 4
-  turnSpeed: 5
+  turnSpeed: 100
   gravityScale: 1
 --- !u!1 &4748386341545020252
 GameObject:
