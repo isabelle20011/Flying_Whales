@@ -23,7 +23,7 @@ public class rotateWithPlayer : MonoBehaviour
 		}
 		else
 		{
-			look = new Quaternion(90.0f, look.y, look.z, look.w) * Quaternion.Euler(-90, 0, 0);
+			look = new Quaternion(0f, look.y, look.z, look.w) * Quaternion.Euler(90, 0, 0);
 		}
 		transform.localRotation = look;
     }
