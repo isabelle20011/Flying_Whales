@@ -9,6 +9,8 @@ public class LevelEnd : MonoBehaviour
 	[SerializeField] private Transform swimHere;
 	[SerializeField] private GameObject canvasEnd;
 	private GameObject heartCanvas;
+    public AudioSource BGM;
+    private AudioSource EndSound;
 
 	private void Start()
 	{
@@ -17,12 +19,16 @@ public class LevelEnd : MonoBehaviour
 		{
 			Debug.LogWarning("No heartCanvas");
 		}
+        BGM = GameObject.FindGameObjectWithTag("BGM").GetComponent<AudioSource>();
+        EndSound = GetComponent<AudioSource>();
 	}
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Player"))
 		{
 			Debug.Log("Entered");
+            BGM.Stop();
+            EndSound.Play();
 			PlayerMovement playerMovement = other.GetComponent<PlayerMovement>();
 			NavMeshAgent agent = other.GetComponent<NavMeshAgent>();
 			Animator animator = other.GetComponentInChildren<Animator>();

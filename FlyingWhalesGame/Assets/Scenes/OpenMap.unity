@@ -18268,7 +18268,7 @@ GameObject:
   - component: {fileID: 1139854959}
   m_Layer: 0
   m_Name: BGM
-  m_TagString: BackgroundMusic
+  m_TagString: BGM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34593,16 +34593,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndCollider
       objectReference: {fileID: 0}
-    - target: {fileID: 4875309221461350745, guid: 9525cb0f4c786ab4d806d9a58d3a76ac,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 55.75215
-      objectReference: {fileID: 0}
-    - target: {fileID: 4875309221461350745, guid: 9525cb0f4c786ab4d806d9a58d3a76ac,
-        type: 3}
-      propertyPath: m_Center.y
-      value: -18.614815
-      objectReference: {fileID: 0}
     - target: {fileID: 8541682438256129313, guid: 9525cb0f4c786ab4d806d9a58d3a76ac,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -34657,41 +34647,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6579474913092490083, guid: 9525cb0f4c786ab4d806d9a58d3a76ac,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6579474913092490083, guid: 9525cb0f4c786ab4d806d9a58d3a76ac,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 53.250153
-      objectReference: {fileID: 0}
-    - target: {fileID: 6579474913092490083, guid: 9525cb0f4c786ab4d806d9a58d3a76ac,
-        type: 3}
-      propertyPath: m_Center.y
-      value: -18.945953
-      objectReference: {fileID: 0}
-    - target: {fileID: 6579474913092490082, guid: 9525cb0f4c786ab4d806d9a58d3a76ac,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6579474913092490082, guid: 9525cb0f4c786ab4d806d9a58d3a76ac,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 55.44922
-      objectReference: {fileID: 0}
-    - target: {fileID: 6579474913092490082, guid: 9525cb0f4c786ab4d806d9a58d3a76ac,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 46.76169
-      objectReference: {fileID: 0}
-    - target: {fileID: 6579474913092490082, guid: 9525cb0f4c786ab4d806d9a58d3a76ac,
-        type: 3}
-      propertyPath: m_Center.y
-      value: -22.596481
       objectReference: {fileID: 0}
     - target: {fileID: 6579474913092490081, guid: 9525cb0f4c786ab4d806d9a58d3a76ac,
         type: 3}
