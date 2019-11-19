@@ -144,8 +144,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: press Space to Exit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 32aff99d9c9a0cf4eb2234857d48d918, type: 2}
-  m_sharedMaterial: {fileID: 8450599489767879378, guid: 32aff99d9c9a0cf4eb2234857d48d918,
+  m_fontAsset: {fileID: 11400000, guid: 0f772e09a44112646bfd8670d8cfe698, type: 2}
+  m_sharedMaterial: {fileID: 1618535258681920494, guid: 0f772e09a44112646bfd8670d8cfe698,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -156.24658, y: 0, z: -154.91687, w: 0}
+  m_margin: {x: -198.6644, y: -23.248, z: -154.91687, w: 6.8686047}
   m_textInfo:
     textComponent: {fileID: 3657662460747026816}
     characterCount: 19

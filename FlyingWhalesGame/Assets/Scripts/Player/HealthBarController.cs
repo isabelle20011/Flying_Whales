@@ -22,18 +22,9 @@ public class HealthBarController : MonoBehaviour
         heartFills = new Image[(int)PlayerHealth.Instance.MaxHealth];
 
         PlayerHealth.Instance.onHealthChangedCallback += UpdateHeartsHUD;
-		GameManager_Master.Instance.RestartLevelEvent += UpdateHeartsHUD;
-		SceneManager.sceneLoaded += UpdateHeartsHUDS;
 		InstantiateHeartContainers();
         UpdateHeartsHUD();
     }
-
-	public void UpdateHeartsHUDS(Scene scene, LoadSceneMode mode)
-	{
-		SetHeartContainers();
-		SetFilledHearts();
-	}
-
 	public void UpdateHeartsHUD()
     {
         SetHeartContainers();
@@ -78,7 +69,6 @@ public class HealthBarController : MonoBehaviour
 
     void InstantiateHeartContainers()
     {
-		Debug.Log(PlayerHealth.Instance.MaxHealth);
         for (int i = 0; i < PlayerHealth.Instance.MaxHealth; i++)
         {
             GameObject temp = Instantiate(heartContainerPrefab);
