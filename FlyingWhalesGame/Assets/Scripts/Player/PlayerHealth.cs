@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip deathClip;
     public AudioClip damageClip;
     public AudioClip healingClip;
-    public GameObject BGM;                                              // (by Sabin Kim) the BGM GameObject
+    private GameObject BGM;                                              // (by Sabin Kim) the BGM GameObject
 
     private Animator anim;                                              // Reference to the Animator component.
     private AudioSource playerAudio;                                    // Reference to the AudioSource component.
@@ -47,15 +47,6 @@ public class PlayerHealth : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
 
         // (by Sabin Kim) Find BGM GameObject (which wears "BackgroundMusic" Tag) and get its AudioSource component
-        BGM = GameObject.Find("BGM");
-		if (BGM)
-		{
-			BGMSource = BGM.GetComponent<AudioSource>();
-		}
-		else
-		{
-			Debug.LogWarning("No death music found");
-		}
 		startingHealth = GameManager_Master.Instance.playerHealth;
         // Set the initial health of the player.
         currentHealth = startingHealth;
@@ -66,6 +57,16 @@ public class PlayerHealth : MonoBehaviour
 		playerLives = GameManager_Master.Instance.playerLives;
 		if (onHealthChangedCallback != null)
 			onHealthChangedCallback.Invoke();
+
+		BGM = GameObject.FindGameObjectWithTag("BackgroundMusic");
+		if (BGM)
+		{
+			BGMSource = BGM.GetComponent<AudioSource>();
+		}
+		else
+		{
+			Debug.LogWarning("No death music found");
+		}
 	}
 
     public void AddHealth()

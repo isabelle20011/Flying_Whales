@@ -8,7 +8,7 @@ namespace GameManager
     public class GameManager_PlayerDied : MonoBehaviour
     {
 		[HideInInspector] public GameObject canvas;
-		[HideInInspector] public TextMeshProUGUI LivesUI;
+		 public TextMeshProUGUI LivesUI;
 
 		private void OnEnable()
         {
@@ -45,6 +45,8 @@ namespace GameManager
 
         private void UpdateUI()
         {
+			Debug.Log("lives called");
+			Debug.Log(GameManager_Master.Instance.playerLives.ToString());
             LivesUI.text = GameManager_Master.Instance.playerLives.ToString();
         }
     }

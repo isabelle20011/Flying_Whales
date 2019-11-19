@@ -12,5 +12,7 @@ public class canvasInstance: MonoBehaviour
 		GameManager_PlayerDied sendCanvas = GameManager_Master.Instance.GetComponent<GameManager_PlayerDied>();
 		sendCanvas.canvas = this.gameObject;
 		sendCanvas.LivesUI = text;
+		text.text = GameManager_Master.Instance.playerLives.ToString();
+
 	}
 }

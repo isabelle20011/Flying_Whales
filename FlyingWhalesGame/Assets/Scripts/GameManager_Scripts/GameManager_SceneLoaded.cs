@@ -23,8 +23,6 @@ namespace GameManager
 			Debug.Log(scene.name);
 			Debug.Log(mode);
 
-			GameManager_Master.Instance.CallLivesUI();
-
 			GameObject player = GameObject.FindGameObjectWithTag("Player");
 			if (player)
 			{
