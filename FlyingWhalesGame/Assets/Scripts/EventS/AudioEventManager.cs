@@ -11,16 +11,19 @@ public class AudioEventManager : MonoBehaviour
 	public AudioClip attackAudio;
 	public AudioClip damageAudio;
 	public AudioClip sheepAudio;
+	public AudioClip jumpAudio;
 
 	private UnityAction<Vector3> attackSoundEventListener;
 	private UnityAction<Vector3> damageSoundEventListener;
 	private UnityAction<Vector3> sheepSoundEventListener;
+	private UnityAction<Vector3> jumpSoundEventListener;
 
 	void Awake()
 	{
 		attackSoundEventListener = new UnityAction<Vector3>(attackSoundEventHandler);
 		damageSoundEventListener = new UnityAction<Vector3>(damageSoundEventHandler);
 		sheepSoundEventListener  = new UnityAction<Vector3>(sheepSoundEventHandler);
+		jumpSoundEventListener = new UnityAction<Vector3>(jumpSoundEventHandler);
 	}
 
 
@@ -35,6 +38,7 @@ public class AudioEventManager : MonoBehaviour
 		EventManager.StartListening<attackSoundEvent, Vector3>(attackSoundEventListener);
 		EventManager.StartListening<damageSoundEvent, Vector3>(damageSoundEventListener);
 		EventManager.StartListening<sheepSoundEvent, Vector3>(sheepSoundEventListener);
+		EventManager.StartListening<jumpSoundEvent, Vector3>(jumpSoundEventListener);
 
 	}
 
@@ -43,6 +47,7 @@ public class AudioEventManager : MonoBehaviour
 		EventManager.StopListening<attackSoundEvent, Vector3>(attackSoundEventListener);
 		EventManager.StartListening<damageSoundEvent, Vector3>(damageSoundEventListener);
 		EventManager.StartListening<sheepSoundEvent, Vector3>(sheepSoundEventListener);
+		EventManager.StartListening<jumpSoundEvent, Vector3>(jumpSoundEventListener);
 	}
 
 	void attackSoundEventHandler(Vector3 pos)
@@ -90,6 +95,23 @@ public class AudioEventManager : MonoBehaviour
 
 			snd.audioSrc.minDistance = 5f;
 			snd.audioSrc.maxDistance = 50f;
+
+			snd.audioSrc.Play();
+		}
+	}
+
+	void jumpSoundEventHandler(Vector3 pos)
+	{
+
+		if (jumpAudio)
+		{
+
+			EventSound3D snd = Instantiate(eventSound3DPrefab, pos, Quaternion.identity, null);
+
+			snd.audioSrc.clip = this.jumpAudio;
+
+			snd.audioSrc.minDistance = 5f;
+			snd.audioSrc.maxDistance = 100f;
 
 			snd.audioSrc.Play();
 		}

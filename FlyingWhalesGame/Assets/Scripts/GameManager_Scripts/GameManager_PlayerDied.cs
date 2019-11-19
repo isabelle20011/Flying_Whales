@@ -7,10 +7,10 @@ namespace GameManager
 {
     public class GameManager_PlayerDied : MonoBehaviour
     {
-		public GameObject canvas;
-		public TextMeshProUGUI LivesUI;
+		[HideInInspector] public GameObject canvas;
+		[HideInInspector] public TextMeshProUGUI LivesUI;
 
-        private void OnEnable()
+		private void OnEnable()
         {
             GameManager_Master.Instance.PlayerDiedEvent += PlayerDied;
             GameManager_Master.Instance.LivesUIEvent += UpdateUI;
@@ -20,7 +20,6 @@ namespace GameManager
                 Debug.LogWarning("missing UI reference");
             }
 
-            DontDestroyOnLoad(canvas);
 			canvas.SetActive(true);
         }
 

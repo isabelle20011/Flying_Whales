@@ -11,12 +11,12 @@ public class TransformFollower : MonoBehaviour
 	[SerializeField] private Space offsetPositionSpace = Space.Self;
 	[SerializeField] public bool b_offsetPositionDialog = false;
 	[SerializeField] private bool m_AutoTargetPlayer = true;  // Whether the rig should automatically target the player.
-	[SerializeField] private bool b_smmoth = true;
 	[SerializeField] public float f_transitionTimeFinal = 10f;
 	[HideInInspector] public float f_transitionTime = 3f;
 	[HideInInspector] public bool stopFollowing = false;
 
 	private Vector3 TargetPosition;
+	private bool b_smooth;
 
 
 	protected virtual void Start()
@@ -72,10 +72,12 @@ public class TransformFollower : MonoBehaviour
 			{
 				if (b_offsetPositionDialog)
 				{
+					b_smooth = true;
 					TargetPosition = target.TransformPoint(offsetPosition + offsetPositionDialog);
 				}
 				else
 				{
+					StartCoroutine(SwitchBool());
 					TargetPosition = target.TransformPoint(offsetPosition);
 				}
 			}
@@ -84,7 +86,7 @@ public class TransformFollower : MonoBehaviour
 				TargetPosition = target.position + offsetPosition;
 			}
 
-			if (b_smmoth)
+			if (b_smooth)
 			{
 
 				transform.position = Vector3.Lerp(transform.position, TargetPosition, f_transitionTime * Time.fixedDeltaTime);
@@ -107,6 +109,11 @@ public class TransformFollower : MonoBehaviour
 	{
 		yield return new WaitForSeconds(2);
 		f_transitionTime = Mathf.Lerp(f_transitionTime, f_transitionTimeFinal, 0.5f);
+	}
+	IEnumerator SwitchBool()
+	{
+		yield return new WaitForSeconds(1);
+		b_smooth = false;
 	}
 
 }

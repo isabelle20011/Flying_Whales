@@ -23,9 +23,12 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 m_Move;
     private float   m_moveSpeed;
 
-    // Animator variables
+	private float h;
+	private float v;
 
-    private float m_InputForward;
+	// Animator variables
+
+	private float m_InputForward;
     private float m_InputTurn;
     private bool  m_Crouching;
     private bool  m_Sprint;
@@ -54,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Move();
         Jump();
+		Rotate();
 		if (allowSprinting)
 		{
 			Sprint();
@@ -64,31 +68,32 @@ public class PlayerMovement : MonoBehaviour
             Crouch();
         }
         Gravity();
-        Rotate();
 		if (allowAttack)
 		{
 			Attack();
 		}
 
-        // Apply move vector
-        m_Controller.Move(this.transform.forward * m_InputForward * Time.deltaTime * m_moveSpeed);
-
-        m_Controller.Move(m_Move * Time.deltaTime);
-
         UpdateAnimator();
     }
 
-    private void Move()
+	private void FixedUpdate()
+	{
+		m_Controller.Move(this.transform.forward * m_InputForward * Time.fixedDeltaTime * m_moveSpeed);
+
+		m_Controller.Move(m_Move * Time.fixedDeltaTime);
+	}
+
+	private void Move()
     {
-        float h = Input.GetAxisRaw("Horizontal");// setup h variable as our horizontal input axis
-        float v = Input.GetAxisRaw("Vertical"); // setup v variables as our vertical input axis
+        h = Input.GetAxisRaw("Horizontal");// setup h variable as our horizontal input axis
+        v = Input.GetAxisRaw("Vertical"); // setup v variables as our vertical input axis
 
         h = h * Mathf.Sqrt(1f - 0.5f * v * v);
         v = v * Mathf.Sqrt(1f - 0.5f * h * h);
 
-        m_InputForward = Mathf.Clamp(Mathf.Lerp(m_InputForward, v, Time.deltaTime * 5f), -5f, 5);
+        m_InputForward = Mathf.Clamp(Mathf.Lerp(m_InputForward, v, Time.fixedDeltaTime * 5f), -5f, 5);
 
-        m_InputTurn = Mathf.Lerp(m_InputTurn, h, Time.deltaTime * 5f);
+        m_InputTurn = Mathf.Lerp(m_InputTurn, h, Time.fixedDeltaTime * 5f);
 
         if (m_InputForward < -0.01f)
             m_InputTurn = -m_InputTurn;
@@ -125,15 +130,15 @@ public class PlayerMovement : MonoBehaviour
         if (m_Sprint && Input.GetButtonDown("Crouch") && !m_Crouching && !m_Dash)
         {
             Debug.Log("Dash");
-            m_Move += Vector3.Scale(transform.forward, DashDistance * new Vector3((Mathf.Log(1f / (Time.deltaTime * Drag.x + 1)) / -Time.deltaTime), 0,
-                                        (Mathf.Log(1f / (Time.deltaTime * Drag.z + 1)) / -Time.deltaTime)));
+            m_Move += Vector3.Scale(transform.forward, DashDistance * new Vector3((Mathf.Log(1f / (Time.fixedDeltaTime * Drag.x + 1)) / -Time.fixedDeltaTime), 0,
+                                        (Mathf.Log(1f / (Time.fixedDeltaTime * Drag.z + 1)) / -Time.fixedDeltaTime)));
             m_Sprint = false;
             m_Dash = true;
             m_moveSpeed = walkingSpeed;
         }
-        m_Move.x /= 1 + Drag.x * Time.deltaTime;
-        m_Move.y /= 1 + Drag.y * Time.deltaTime;
-        m_Move.z /= 1 + Drag.z * Time.deltaTime;
+        m_Move.x /= 1 + Drag.x * Time.fixedDeltaTime;
+        m_Move.y /= 1 + Drag.y * Time.fixedDeltaTime;
+        m_Move.z /= 1 + Drag.z * Time.fixedDeltaTime;
     }
 
     private void Crouch()
@@ -169,15 +174,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Gravity()
     {
-        m_Move.y += (Physics.gravity.y * gravityScale * Time.deltaTime);
+        m_Move.y += (Physics.gravity.y * gravityScale * Time.fixedDeltaTime);
     }
 
     private void Rotate()
     {
-        transform.Rotate(0f, m_InputTurn * turnSpeed, 0f);
-    }
+        transform.Rotate(0f, m_InputTurn * turnSpeed * Time.fixedDeltaTime, 0f);
+	}
 
-    private void Attack()
+	private void Attack()
     {
         if (Input.GetButtonDown("Fire1"))
         {
