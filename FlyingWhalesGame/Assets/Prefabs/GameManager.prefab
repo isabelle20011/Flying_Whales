@@ -55,7 +55,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGameOver: 0
   isMenuOn: 0
-  playerLives: 1
+  playerLives: 5
+  playerHealth: 4
+  momWasCalled: 0
+  hasCrouch: 0
+  hasSprint: 0
+  hasAttack: 0
 --- !u!114 &9205734765096478544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,9 +73,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 331c9ed31ac4cb94f80d075ecca0c3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnPoint: {fileID: 0}
-  PlayerPrefab: {fileID: 6585056261439733219, guid: 2154546f4af81f64685f85542bd3f9ac,
-    type: 3}
 --- !u!114 &9205734765096478565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f13323591ad0874b8995c49d020ad6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
   LivesUI: {fileID: 0}
 --- !u!114 &9205734765096478570
 MonoBehaviour:

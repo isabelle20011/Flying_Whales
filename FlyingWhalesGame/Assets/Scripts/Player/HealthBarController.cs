@@ -78,6 +78,7 @@ public class HealthBarController : MonoBehaviour
 
     void InstantiateHeartContainers()
     {
+		Debug.Log(PlayerHealth.Instance.MaxHealth);
         for (int i = 0; i < PlayerHealth.Instance.MaxHealth; i++)
         {
             GameObject temp = Instantiate(heartContainerPrefab);

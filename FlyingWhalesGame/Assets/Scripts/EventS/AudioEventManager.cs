@@ -103,7 +103,7 @@ public class AudioEventManager : MonoBehaviour
 	void jumpSoundEventHandler(Vector3 pos)
 	{
 
-		if (attackAudio)
+		if (jumpAudio)
 		{
 
 			EventSound3D snd = Instantiate(eventSound3DPrefab, pos, Quaternion.identity, null);

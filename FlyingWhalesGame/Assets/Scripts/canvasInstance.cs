@@ -1,18 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameManager;
+using TMPro;
 
 public class canvasInstance: MonoBehaviour
 {
-	public static canvasInstance instance { get; private set; }
-	private void Awake()
+	public TextMeshProUGUI text;
+	private void Start()
 	{
-		if (instance != null && instance != this)
-		{
-			Destroy(this.gameObject);
-			return;
-		}
-		instance = this;
-		DontDestroyOnLoad(this.gameObject);
+		GameManager_PlayerDied sendCanvas = GameManager_Master.Instance.GetComponent<GameManager_PlayerDied>();
+		sendCanvas.canvas = this.gameObject;
+		sendCanvas.LivesUI = text;
 	}
 }
