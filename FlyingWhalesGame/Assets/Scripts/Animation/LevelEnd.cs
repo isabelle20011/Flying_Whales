@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
@@ -9,8 +8,8 @@ public class LevelEnd : MonoBehaviour
 	[SerializeField] private Transform swimHere;
 	[SerializeField] private GameObject canvasEnd;
 	private GameObject heartCanvas;
-    private AudioSource BGM;
-    private AudioSource EndSound;
+	private AudioSource BGM;
+	private AudioSource EndSound;
 
 	private void Start()
 	{
@@ -19,16 +18,16 @@ public class LevelEnd : MonoBehaviour
 		{
 			Debug.LogWarning("No heartCanvas");
 		}
-        BGM = GameObject.FindGameObjectWithTag("BackgroundMusic").GetComponent<AudioSource>();
-        EndSound = GetComponent<AudioSource>();
+		BGM = GameObject.FindGameObjectWithTag("BackgroundMusic").GetComponent<AudioSource>();
+		EndSound = GetComponent<AudioSource>();
 	}
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Player"))
 		{
 			Debug.Log("Entered");
-            BGM.Stop();
-            EndSound.Play();
+			BGM.Stop();
+			EndSound.Play();
 			PlayerMovement playerMovement = other.GetComponent<PlayerMovement>();
 			NavMeshAgent agent = other.GetComponent<NavMeshAgent>();
 			Animator animator = other.GetComponentInChildren<Animator>();

@@ -1,22 +1,21 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneAndURLLoader : MonoBehaviour
 {
-    private PauseMenu m_PauseMenu;
+	private PauseMenu m_PauseMenu;
 
 
-    private void Awake ()
-    {
-        m_PauseMenu = GetComponentInChildren <PauseMenu> ();
-    }
+	private void Awake()
+	{
+		m_PauseMenu = GetComponentInChildren<PauseMenu>();
+	}
 
 
-    public void SceneLoad(string sceneName)
+	public void SceneLoad(string sceneName)
 	{
 		//PauseMenu pauseMenu = (PauseMenu)FindObjectOfType(typeof(PauseMenu));
-		m_PauseMenu.MenuOff ();
+		m_PauseMenu.MenuOff();
 		SceneManager.LoadScene(sceneName);
 	}
 

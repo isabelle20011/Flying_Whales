@@ -3,8 +3,8 @@ public class switchToSettings : MonoBehaviour
 {
 	public GameObject mainPanel;
 	public GameObject settingsPanel;
-    
-    public void changeToSettings()
+
+	public void changeToSettings()
 	{
 		mainPanel.SetActive(false);
 		settingsPanel.SetActive(true);

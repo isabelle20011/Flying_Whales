@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 public class AudioEventManager : MonoBehaviour
@@ -22,7 +20,7 @@ public class AudioEventManager : MonoBehaviour
 	{
 		attackSoundEventListener = new UnityAction<Vector3>(attackSoundEventHandler);
 		damageSoundEventListener = new UnityAction<Vector3>(damageSoundEventHandler);
-		sheepSoundEventListener  = new UnityAction<Vector3>(sheepSoundEventHandler);
+		sheepSoundEventListener = new UnityAction<Vector3>(sheepSoundEventHandler);
 		jumpSoundEventListener = new UnityAction<Vector3>(jumpSoundEventHandler);
 	}
 

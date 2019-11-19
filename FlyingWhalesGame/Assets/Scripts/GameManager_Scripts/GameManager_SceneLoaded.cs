@@ -1,24 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace GameManager
 {
-    public class GameManager_SceneLoaded : MonoBehaviour
-    {
-        private void OnEnable()
-        {
-            SceneManager.sceneLoaded += OnLevelFinishedLoading;
-        }
+	public class GameManager_SceneLoaded : MonoBehaviour
+	{
+		private void OnEnable()
+		{
+			SceneManager.sceneLoaded += OnLevelFinishedLoading;
+		}
 
-        private void OnDisable()
-        {
-            SceneManager.sceneLoaded -= OnLevelFinishedLoading;
+		private void OnDisable()
+		{
+			SceneManager.sceneLoaded -= OnLevelFinishedLoading;
 
-        }
-        private void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
-        {
+		}
+		private void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+		{
 			Debug.Log("Level Loaded");
 			Debug.Log(scene.name);
 			Debug.Log(mode);
@@ -35,5 +33,5 @@ namespace GameManager
 				}
 			}
 		}
-    }
+	}
 }

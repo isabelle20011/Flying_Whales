@@ -1,54 +1,53 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 namespace GameManager
 {
-    public class GameManager_PlayerDied : MonoBehaviour
-    {
+	public class GameManager_PlayerDied : MonoBehaviour
+	{
 		[HideInInspector] public GameObject canvas;
-		 public TextMeshProUGUI LivesUI;
+		public TextMeshProUGUI LivesUI;
 
 		private void OnEnable()
-        {
-            GameManager_Master.Instance.PlayerDiedEvent += PlayerDied;
-            GameManager_Master.Instance.LivesUIEvent += UpdateUI;
+		{
+			GameManager_Master.Instance.PlayerDiedEvent += PlayerDied;
+			GameManager_Master.Instance.LivesUIEvent += UpdateUI;
 
-            if (LivesUI == null)
-            {
-                Debug.LogWarning("missing UI reference");
-            }
+			if (LivesUI == null)
+			{
+				Debug.LogWarning("missing UI reference");
+			}
 
 			canvas.SetActive(true);
-        }
+		}
 
-        private void OnDisable()
-        {
-            GameManager_Master.Instance.PlayerDiedEvent -= PlayerDied;
-            GameManager_Master.Instance.LivesUIEvent -= UpdateUI;
+		private void OnDisable()
+		{
+			GameManager_Master.Instance.PlayerDiedEvent -= PlayerDied;
+			GameManager_Master.Instance.LivesUIEvent -= UpdateUI;
 
 		}
 
-        private void PlayerDied()
-        {
-            GameManager_Master.Instance.CallLivesUI();
-            StartCoroutine(Dead());
-        }
+		private void PlayerDied()
+		{
+			GameManager_Master.Instance.CallLivesUI();
+			StartCoroutine(Dead());
+		}
 
-        IEnumerator Dead()
-        {
-            Debug.Log("dead");
-            yield return new WaitForSeconds(5);
-            GameManager_Master.Instance.CallEventRestartLevel();
-        }
+		IEnumerator Dead()
+		{
+			Debug.Log("dead");
+			yield return new WaitForSeconds(5);
+			GameManager_Master.Instance.CallEventRestartLevel();
+		}
 
-        private void UpdateUI()
-        {
+		private void UpdateUI()
+		{
 			if (LivesUI)
 			{
 				LivesUI.text = GameManager_Master.Instance.playerLives.ToString();
 			}
-        }
-    }
+		}
+	}
 }

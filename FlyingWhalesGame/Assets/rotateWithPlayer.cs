@@ -1,20 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class rotateWithPlayer : MonoBehaviour
 {
 	// Start is called before the first frame update
 	private GameObject player;
 	public bool isBig;
-    void Start()
-    {
+	void Start()
+	{
 		player = GameObject.FindGameObjectWithTag("Player");
-    }
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
+	// Update is called once per frame
+	void Update()
+	{
 		if (player)
 		{
 			Quaternion look = player.transform.rotation;
@@ -29,5 +27,5 @@ public class rotateWithPlayer : MonoBehaviour
 			}
 			transform.localRotation = look;
 		}
-    }
+	}
 }

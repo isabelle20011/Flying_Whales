@@ -1,48 +1,46 @@
-﻿using System;
-using UnityEditor;
-using UnityEngine;
+﻿using UnityEditor;
 
 namespace HeurekaGames.AssetHunterPRO
 {
-    [InitializeOnLoad]
-    public class AH_VersionUpgrader
-    {
+	[InitializeOnLoad]
+	public class AH_VersionUpgrader
+	{
 #pragma warning disable 0414    // suppress value not used warning
-        static readonly string prefKey = "AH_DONT_IMPORT_OLD_SETTINGS";
+		static readonly string prefKey = "AH_DONT_IMPORT_OLD_SETTINGS";
 #pragma warning restore 0414    // restore value not used warning
 
-        public static bool VersionUpgraderReady = false;
+		public static bool VersionUpgraderReady = false;
 
-        static AH_VersionUpgrader()
-        {
-            runUpgradeTest();
-        }
+		static AH_VersionUpgrader()
+		{
+			runUpgradeTest();
+		}
 
-        private static void runUpgradeTest()
-        {
-            //Check if we have old asset hunter installed already
-            VersionUpgraderReady = getOldSettings().Length > 0;
-            AH_PreProcessor.AddDefineSymbols(AH_PreProcessor.DefineHasOldVersion, VersionUpgraderReady);
+		private static void runUpgradeTest()
+		{
+			//Check if we have old asset hunter installed already
+			VersionUpgraderReady = getOldSettings().Length > 0;
+			AH_PreProcessor.AddDefineSymbols(AH_PreProcessor.DefineHasOldVersion, VersionUpgraderReady);
 
-            //Make sure we haven't chosen NOT to import
-            if (EditorPrefs.HasKey(prefKey))
-            {
-                if (AH_Utils.IntToBool(EditorPrefs.GetInt(prefKey)) == true)
-                {
-                    return;
-                }
-            }
+			//Make sure we haven't chosen NOT to import
+			if (EditorPrefs.HasKey(prefKey))
+			{
+				if (AH_Utils.IntToBool(EditorPrefs.GetInt(prefKey)) == true)
+				{
+					return;
+				}
+			}
 
-            if(VersionUpgraderReady)
-                EditorUtility.DisplayDialog("Old Asset Hunter settings found", "To transfer old settings open 'Window->Asset Hunter Pro->Transfer Settings'", "Ok");
+			if (VersionUpgraderReady)
+				EditorUtility.DisplayDialog("Old Asset Hunter settings found", "To transfer old settings open 'Window->Asset Hunter Pro->Transfer Settings'", "Ok");
 
-            EditorPrefs.SetInt(prefKey, 1);
-        }
+			EditorPrefs.SetInt(prefKey, 1);
+		}
 
-        private static string[] getOldSettings()
-        {
-            return AssetDatabase.FindAssets("t: AssetHunterSettings");
-        }
+		private static string[] getOldSettings()
+		{
+			return AssetDatabase.FindAssets("t: AssetHunterSettings");
+		}
 
 #if AH_HAS_OLD_INSTALLED
         [UnityEditor.MenuItem("Window/Heureka/Asset Hunter PRO/Transfer Old Settings", priority = AH_Window.WINDOWMENUITEMPRIO)]
@@ -134,5 +132,5 @@ namespace HeurekaGames.AssetHunterPRO
             }
         }
 #endif
-    }
+	}
 }

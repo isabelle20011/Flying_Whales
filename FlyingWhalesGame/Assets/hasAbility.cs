@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using GameManager;
+﻿using GameManager;
+using UnityEngine;
 
 public class hasAbility : MonoBehaviour
 {

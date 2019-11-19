@@ -1,11 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PortalAppear : MonoBehaviour
 {
-	[SerializeField]private ParticleSystem particle;
-	[SerializeField]private MeshRenderer[] meshes;
+	[SerializeField] private ParticleSystem particle;
+	[SerializeField] private MeshRenderer[] meshes;
 	private void OnEnable()
 	{
 		Debug.Log("called");
@@ -13,7 +12,7 @@ public class PortalAppear : MonoBehaviour
 		{
 			particle.transform.parent = null;
 			particle.Play();
-			Destroy(particle.gameObject, particle.main.duration+ 0.1f);
+			Destroy(particle.gameObject, particle.main.duration + 0.1f);
 		}
 		StartCoroutine(waitForParticle());
 	}
@@ -32,6 +31,6 @@ public class PortalAppear : MonoBehaviour
 		{
 			Debug.LogWarning("no mesh");
 		}
-		
+
 	}
 }

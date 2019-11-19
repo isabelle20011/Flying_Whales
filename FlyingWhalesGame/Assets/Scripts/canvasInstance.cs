@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using GameManager;
+﻿using GameManager;
 using TMPro;
+using UnityEngine;
 
-public class canvasInstance: MonoBehaviour
+public class canvasInstance : MonoBehaviour
 {
 	public TextMeshProUGUI text;
 	private void Start()

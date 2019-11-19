@@ -1,14 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using GameManager;
+﻿using GameManager;
 using TMPro;
+using UnityEngine;
 
 public class allowAbility : MonoBehaviour
 {
-    public bool attack;
-    public bool sprinting;
-    public bool crouching;
+	public bool attack;
+	public bool sprinting;
+	public bool crouching;
 
 	[SerializeField] private GameObject canvas;
 	[SerializeField] private TextMeshProUGUI text;
@@ -34,31 +32,31 @@ public class allowAbility : MonoBehaviour
 	}
 
 	private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerMovement = other.GetComponent<PlayerMovement>();
-            if (playerMovement != null)
-            {
-                if (sprinting)
-                {
+	{
+		if (other.CompareTag("Player"))
+		{
+			playerMovement = other.GetComponent<PlayerMovement>();
+			if (playerMovement != null)
+			{
+				if (sprinting)
+				{
 					playerMovement.allowSprinting = true;
 					GameManager_Master.Instance.hasSprint = true;
 					changed = true;
 					button = "SHIFT";
 					ability = "Sprint";
 				}
-                else if (attack)
-                {
+				else if (attack)
+				{
 					playerMovement.allowAttack = true;
 					GameManager_Master.Instance.hasAttack = true;
 					changed = true;
 					button = "CTRL or Left Click";
 					ability = "Attack";
 				}
-                else if (crouching)
-                {
-                    playerMovement.allowCrouch = true;
+				else if (crouching)
+				{
+					playerMovement.allowCrouch = true;
 					GameManager_Master.Instance.hasCrouch = true;
 					changed = true;
 					button = "ALT or Right Click";
@@ -72,7 +70,7 @@ public class allowAbility : MonoBehaviour
 					playerMovement.enabled = false;
 					Time.timeScale = 0;
 				}
-            }
+			}
 			changed = false;
 		}
 	}

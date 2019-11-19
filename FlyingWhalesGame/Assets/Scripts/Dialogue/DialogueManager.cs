@@ -1,29 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
 //made by Daniel Otaigbe
 public class DialogueManager : MonoBehaviour
 {
-    public TextMeshProUGUI nameText;
-    public TextMeshProUGUI dialogueText;
+	public TextMeshProUGUI nameText;
+	public TextMeshProUGUI dialogueText;
 	public TextMeshProUGUI helperText;
-    public Canvas canvas;
+	public Canvas canvas;
 	public GameObject dialogueBox;
 	private TransformFollower cameraScript;
 	private GameObject player;
 	private DialogueTrigger trigger;
 
-    private Queue<string> sentences; //works like a list, but more restricted. It's FIFO (First in, First Out) so new sentences are loaded from the end of the queue
+	private Queue<string> sentences; //works like a list, but more restricted. It's FIFO (First in, First Out) so new sentences are loaded from the end of the queue
 	private int sentencesNum;
-    public bool inConvo = false;
+	public bool inConvo = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        sentences = new Queue<string>();
-        canvas.enabled = false;
+	// Start is called before the first frame update
+	void Start()
+	{
+		sentences = new Queue<string>();
+		canvas.enabled = false;
 		player = GameObject.FindGameObjectWithTag("Player");
 		if (player == null)
 		{
@@ -43,19 +41,19 @@ public class DialogueManager : MonoBehaviour
 		{
 			Debug.LogWarning("No main camera");
 		}
-    }
+	}
 
-    public void StartDialogue(Dialogue dialogue)
-    {
-        nameText.text = dialogue.name;
+	public void StartDialogue(Dialogue dialogue)
+	{
+		nameText.text = dialogue.name;
 
-        sentences.Clear();
+		sentences.Clear();
 
-        //going through the queue and putting in all the sentences we want to show
-        foreach (string sentence in dialogue.sentences)
-        {
-            sentences.Enqueue(sentence); //adds all the sentences to the queue
-        }
+		//going through the queue and putting in all the sentences we want to show
+		foreach (string sentence in dialogue.sentences)
+		{
+			sentences.Enqueue(sentence); //adds all the sentences to the queue
+		}
 		sentencesNum = sentences.Count;
 		cameraScript.b_offsetPositionDialog = true;
 		cameraScript.f_transitionTime = 5f;
@@ -64,14 +62,14 @@ public class DialogueManager : MonoBehaviour
 		DisplayNextSentence();
 	}
 
-    public void DisplayNextSentence()
-    {
-        if (sentences.Count == 0)
-        {
-            inConvo = false;
-            EndDialogue();
-            return;
-        }
+	public void DisplayNextSentence()
+	{
+		if (sentences.Count == 0)
+		{
+			inConvo = false;
+			EndDialogue();
+			return;
+		}
 		if (sentences.Count == sentencesNum - trigger.doSomething)
 		{
 			trigger.OnDoSomething();
@@ -80,7 +78,7 @@ public class DialogueManager : MonoBehaviour
 		inConvo = true;
 		string sentence = sentences.Dequeue(); //removes and returns the first object of the queue
 		dialogueText.text = sentence;
-    }
+	}
 
 	public virtual void EndDialogue()
 	{

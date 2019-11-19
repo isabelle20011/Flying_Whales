@@ -1,13 +1,13 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
 public class vDestroyGameObject : MonoBehaviour
 {
-    public float delay;
+	public float delay;
 
-    IEnumerator Start()
-    {
-        yield return new WaitForSeconds(delay);
-        Destroy(gameObject);
-    }
+	IEnumerator Start()
+	{
+		yield return new WaitForSeconds(delay);
+		Destroy(gameObject);
+	}
 }

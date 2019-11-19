@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using GameManager;
+using System.Collections;
 using UnityEngine;
-using GameManager;
 
 public class DialogueTriggerImmediately : DialogueTrigger
 {

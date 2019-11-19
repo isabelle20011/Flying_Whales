@@ -1,28 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
 
-    public bool active;
+	public bool active;
 
-    void Start()
-    {
-        gameObject.SetActive(active);
-    }
+	void Start()
+	{
+		gameObject.SetActive(active);
+	}
 
-    public void StartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
+	public void StartGame()
+	{
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+	}
 
-    public void QuitGame()
-    {
-        Debug.Log("Game quit successfully!");
-        Application.Quit();
-    }
+	public void QuitGame()
+	{
+		Debug.Log("Game quit successfully!");
+		Application.Quit();
+	}
 
 	public void Credits()
 	{
