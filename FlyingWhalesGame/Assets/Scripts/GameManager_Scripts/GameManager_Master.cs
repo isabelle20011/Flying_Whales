@@ -27,13 +27,13 @@ namespace GameManager
         public event GameManagerEventHandler PlayerDiedEvent;
         public event GameManagerEventHandler LivesUIEvent;
 
-        public bool isGameOver;
-        public bool isMenuOn;
+		[HideInInspector] public bool isGameOver;
+		[HideInInspector] public bool isMenuOn;
         public int  playerLives = 5;
 		public int  playerHealth = 4;
 
 		// continuity things
-		public bool momWasCalled = false;
+		[HideInInspector] public bool momWasCalled = false;
 		public bool hasCrouch = false;
 		public bool hasSprint = false;
 		public bool hasAttack = false;

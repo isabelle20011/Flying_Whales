@@ -77,6 +77,9 @@ public class Navigation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if (!player)
+			return;
+
         //If the player gets too close, attack!
         if (Vector3.Distance(myTransform.position, player.transform.position) < 10)
         {
@@ -139,7 +142,7 @@ public class Navigation : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
 	{
 		// If the entering collider is the player...
-		if (other.gameObject == player)
+		if (other.CompareTag("Player"))
 		{
 			PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
 			if (playerMovement)
