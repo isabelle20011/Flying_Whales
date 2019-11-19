@@ -47,7 +47,7 @@ public class PlayerHealth : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
 
         // (by Sabin Kim) Find BGM GameObject (which wears "BackgroundMusic" Tag) and get its AudioSource component
-        BGM = GameObject.FindGameObjectWithTag("BackgroundMusic");
+        BGM = GameObject.Find("BGM");
 		if (BGM)
 		{
 			BGMSource = BGM.GetComponent<AudioSource>();
