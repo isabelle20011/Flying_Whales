@@ -45,9 +45,10 @@ namespace GameManager
 
         private void UpdateUI()
         {
-			Debug.Log("lives called");
-			Debug.Log(GameManager_Master.Instance.playerLives.ToString());
-            LivesUI.text = GameManager_Master.Instance.playerLives.ToString();
+			if (LivesUI)
+			{
+				LivesUI.text = GameManager_Master.Instance.playerLives.ToString();
+			}
         }
     }
 }
