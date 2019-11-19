@@ -23,4 +23,9 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Game quit successfully!");
         Application.Quit();
     }
+
+	public void Credits()
+	{
+		SceneManager.LoadScene("EndCredits");
+	}
 }

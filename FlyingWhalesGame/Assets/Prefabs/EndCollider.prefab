@@ -88,7 +88,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swimHere: {fileID: 0}
   canvasEnd: {fileID: 0}
-  BGM: {fileID: 0}
 --- !u!82 &1157859608
 AudioSource:
   m_ObjectHideFlags: 0
@@ -98,8 +97,9 @@ AudioSource:
   m_GameObject: {fileID: 4930204730613349262}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 59b6c0a8008aa854092ef6088104f7a1, type: 3}
+  OutputAudioMixerGroup: {fileID: -5665374389720186823, guid: 9dc241b9efc45674b8c7ba3622816bc5,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: f0eff0480c65a9a4380088480ba5ed7e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
