@@ -177,8 +177,8 @@ MonoBehaviour:
   walkingSpeed: 8
   sprintingSpeed: 15
   turnSpeed: 200
-  jumpHeight: 15
-  gravityScale: 5
+  jumpHeight: 10
+  gravityScale: 10
   DashDistance: 10
   Drag: {x: 5, y: 0, z: 5}
   m_Jump: 0
