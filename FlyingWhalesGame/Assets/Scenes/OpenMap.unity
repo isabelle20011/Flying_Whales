@@ -22410,7 +22410,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 2cfbc45badda8da49ac862663380385b,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 2cfbc45badda8da49ac862663380385b,
         type: 3}
@@ -34198,7 +34198,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 2cfbc45badda8da49ac862663380385b,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 2cfbc45badda8da49ac862663380385b,
         type: 3}
@@ -37013,6 +37013,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: CountDown
       objectReference: {fileID: 0}
+    - target: {fileID: 117936725, guid: c893167e823ed874f9e267525483446a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 117936727, guid: c893167e823ed874f9e267525483446a, type: 3}
+      propertyPath: m_margin.y
+      value: -159.42735
+      objectReference: {fileID: 0}
+    - target: {fileID: 117936727, guid: c893167e823ed874f9e267525483446a, type: 3}
+      propertyPath: m_fontSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 117936727, guid: c893167e823ed874f9e267525483446a, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c893167e823ed874f9e267525483446a, type: 3}
 --- !u!1001 &6579474913092490079
@@ -37482,7 +37498,7 @@ SphereCollider:
   m_GameObject: {fileID: 7657553811892988143}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 18.798721
   m_Center: {x: 0.000000026766969, y: 0, z: 10.112319}
@@ -37522,7 +37538,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7657553811892988143}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76ce714857fd17a44b71f2f46f0a8f52, type: 3}
   m_Name: 
@@ -37544,22 +37560,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currTime: 0
-  startTime: 40
+  b_countdown: 0
+  startTime: 59
   countdown: {fileID: 233473462}
   fruitPicked: 0
---- !u!135 &7657553811892988150
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7657553811892988143}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 18.798721
-  m_Center: {x: 0.000000026766969, y: 0, z: 10.112319}
 --- !u!114 &7657553811892988151
 MonoBehaviour:
   m_ObjectHideFlags: 0

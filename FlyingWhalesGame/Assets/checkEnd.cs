@@ -45,6 +45,7 @@ public class checkEnd : MonoBehaviour
 		collectible.SetActive(true);
 		EventManager.TriggerEvent<portalSpawnSoundEvent, Vector3>(transform.position);
 		dialogueTrigger.enabled = true;
+		countdown.countdown.gameObject.SetActive(false);
 		countdown.enabled = false;
 		this.enabled = false;
 	}

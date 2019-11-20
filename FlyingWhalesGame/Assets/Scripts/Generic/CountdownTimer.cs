@@ -6,7 +6,7 @@ public class CountdownTimer : MonoBehaviour
 	[HideInInspector] public float currTime = 0f;
 	[HideInInspector] public bool b_countdown = false;
 	[SerializeField] private float startTime = 40f;
-	[SerializeField] private TextMeshProUGUI countdown;
+	[SerializeField] public TextMeshProUGUI countdown;
 	[HideInInspector] public int fruitPicked = 0;
 
 
