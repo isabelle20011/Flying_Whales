@@ -5005,10 +5005,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 581369099}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 882174b22ac8e6c498138edcc6d6547f, type: 3}
+  m_Script: {fileID: 11500000, guid: c1e9e1533676f514b935ace3d1a3bf93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1001 &581565581
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5064,6 +5063,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3170071b601530b49b08f06beca71b57, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3170071b601530b49b08f06beca71b57, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3170071b601530b49b08f06beca71b57, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3170071b601530b49b08f06beca71b57, type: 3}
 --- !u!4 &581565582 stripped
@@ -5072,6 +5083,41 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 581565581}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &581565583 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 3170071b601530b49b08f06beca71b57,
+    type: 3}
+  m_PrefabInstance: {fileID: 581565581}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &581565584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581565583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765dc9ac7eff0e74c944fb0844024227, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenAttacks: 0.5
+  KillOnTouch: 0
+  DestroyAfterDamage: 0
+--- !u!136 &581565585
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581565583}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.27063346
+  m_Height: 0.7430449
+  m_Direction: 1
+  m_Center: {x: -0.057386, y: 0.37104347, z: -0.031580973}
 --- !u!1 &588829112
 GameObject:
   m_ObjectHideFlags: 0
@@ -15173,8 +15219,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 581565584, guid: 3170071b601530b49b08f06beca71b57, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3170071b601530b49b08f06beca71b57, type: 3}
 --- !u!4 &1951267002 stripped
 Transform:

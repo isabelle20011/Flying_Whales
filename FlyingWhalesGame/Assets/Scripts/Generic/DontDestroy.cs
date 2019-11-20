@@ -21,17 +21,4 @@ public class DontDestroy : MonoBehaviour
 		}
 		DontDestroyOnLoad(this.gameObject);
 	}
-
-    // (by Sabin Kim) probably a very bashy/inefficient solution to make the intro cutscene music shut up
-    void Update()
-    {
-        if (SceneManager.GetActiveScene().name == "OpenMap")
-        {
-            while (audioSource.volume > 0)
-            {
-                audioSource.volume -= .04f;
-            }
-            Destroy(this);
-        }
-    }
 }
