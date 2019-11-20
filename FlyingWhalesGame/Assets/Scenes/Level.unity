@@ -4878,6 +4878,7 @@ GameObject:
   - component: {fileID: 581369101}
   - component: {fileID: 581369100}
   - component: {fileID: 581369102}
+  - component: {fileID: 581369103}
   m_Layer: 0
   m_Name: BGM
   m_TagString: BackgroundMusic
@@ -5008,6 +5009,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e9e1533676f514b935ace3d1a3bf93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &581369103
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581369099}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 025af7f69a50ba34e98b5e82b38ddc70, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &581565581
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5806,11 +5826,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1606103791}
-    - target: {fileID: 943756280326504845, guid: 036874a2ab7241c4bb5391db43309e23,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 264656411, guid: 036874a2ab7241c4bb5391db43309e23, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -5859,26 +5874,6 @@ PrefabInstance:
     - target: {fileID: 8589848271548622688, guid: 036874a2ab7241c4bb5391db43309e23,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7202681137561473180, guid: 036874a2ab7241c4bb5391db43309e23,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7202681137561473180, guid: 036874a2ab7241c4bb5391db43309e23,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7202681137561473180, guid: 036874a2ab7241c4bb5391db43309e23,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7202681137561473180, guid: 036874a2ab7241c4bb5391db43309e23,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6898676492911764204, guid: 036874a2ab7241c4bb5391db43309e23,
@@ -5942,6 +5937,31 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6616703970876101522, guid: 036874a2ab7241c4bb5391db43309e23,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 943756280326504845, guid: 036874a2ab7241c4bb5391db43309e23,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7202681137561473180, guid: 036874a2ab7241c4bb5391db43309e23,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7202681137561473180, guid: 036874a2ab7241c4bb5391db43309e23,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7202681137561473180, guid: 036874a2ab7241c4bb5391db43309e23,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7202681137561473180, guid: 036874a2ab7241c4bb5391db43309e23,
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0

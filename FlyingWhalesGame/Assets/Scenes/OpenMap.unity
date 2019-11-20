@@ -11383,6 +11383,11 @@ PrefabInstance:
       propertyPath: panelGameOver
       value: 
       objectReference: {fileID: 405103575}
+    - target: {fileID: 9205734765096478571, guid: 415e09460d035f6439c85093ea308790,
+        type: 3}
+      propertyPath: hasCrouch
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9205734765096478545, guid: 415e09460d035f6439c85093ea308790,
         type: 3}
       propertyPath: canvas
@@ -11393,11 +11398,6 @@ PrefabInstance:
       propertyPath: LivesUI
       value: 
       objectReference: {fileID: 775953657}
-    - target: {fileID: 9205734765096478571, guid: 415e09460d035f6439c85093ea308790,
-        type: 3}
-      propertyPath: hasCrouch
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 415e09460d035f6439c85093ea308790, type: 3}
 --- !u!1001 &500638678
@@ -13530,6 +13530,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1293682673628185660, guid: 2154546f4af81f64685f85542bd3f9ac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3625968283666099595, guid: 2154546f4af81f64685f85542bd3f9ac,
         type: 3}
       propertyPath: playOnAwake
@@ -13574,11 +13579,6 @@ PrefabInstance:
         type: 3}
       propertyPath: playOnAwake
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1293682673628185660, guid: 2154546f4af81f64685f85542bd3f9ac,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2154546f4af81f64685f85542bd3f9ac, type: 3}
@@ -23435,6 +23435,7 @@ GameObject:
   - component: {fileID: 1139854960}
   - component: {fileID: 1139854959}
   - component: {fileID: 1139854961}
+  - component: {fileID: 1139854962}
   m_Layer: 0
   m_Name: BGM
   m_TagString: BackgroundMusic
@@ -23565,6 +23566,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e9e1533676f514b935ace3d1a3bf93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1139854962
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139854958}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 025af7f69a50ba34e98b5e82b38ddc70, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1141980212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43942,18 +43962,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelChanger
       objectReference: {fileID: 0}
-    - target: {fileID: 117936727, guid: c893167e823ed874f9e267525483446a, type: 3}
-      propertyPath: m_margin.y
-      value: -159.42735
-      objectReference: {fileID: 0}
-    - target: {fileID: 117936727, guid: c893167e823ed874f9e267525483446a, type: 3}
-      propertyPath: m_fontSize
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 117936727, guid: c893167e823ed874f9e267525483446a, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 6271594216462825021, guid: c893167e823ed874f9e267525483446a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -44016,6 +44024,18 @@ PrefabInstance:
     - target: {fileID: 117936725, guid: c893167e823ed874f9e267525483446a, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 117936727, guid: c893167e823ed874f9e267525483446a, type: 3}
+      propertyPath: m_margin.y
+      value: -159.42735
+      objectReference: {fileID: 0}
+    - target: {fileID: 117936727, guid: c893167e823ed874f9e267525483446a, type: 3}
+      propertyPath: m_fontSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 117936727, guid: c893167e823ed874f9e267525483446a, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c893167e823ed874f9e267525483446a, type: 3}
