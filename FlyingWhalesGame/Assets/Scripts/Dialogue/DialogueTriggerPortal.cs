@@ -16,6 +16,7 @@ public class DialogueTriggerPortal : DialogueTrigger
 		if (portal)
 		{
 			portal.SetActive(true);
+			EventManager.TriggerEvent<portalSpawnSoundEvent, Vector3>(transform.position);
 		}
 	}
 
