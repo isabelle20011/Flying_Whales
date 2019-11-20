@@ -5,11 +5,12 @@ using UnityEngine;
 public class pickFruit : MonoBehaviour
 {
 	private CountdownTimer countdown;
-	[SerializeField] private ParticleSystem particles;
+	private ParticleSystem particles;
 
 	private void Start()
 	{
 		countdown = GameObject.FindObjectOfType<CountdownTimer>();
+		particles = GetComponentInChildren<ParticleSystem>();
 		if (!countdown)
 		{
 			Debug.LogWarning("no countdown found");
@@ -32,7 +33,13 @@ public class pickFruit : MonoBehaviour
 				countdown.fruitPicked++;
 			}
 			//Destroy(this.gameObject);
-			this.gameObject.SetActive(false);
+			StartCoroutine(afterParticles());
 		}
+	}
+
+	IEnumerator afterParticles()
+	{
+		yield return new WaitForSeconds(.3f);
+		this.gameObject.SetActive(false);
 	}
 }
