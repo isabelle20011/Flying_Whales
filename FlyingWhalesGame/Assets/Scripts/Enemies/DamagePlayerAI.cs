@@ -28,7 +28,6 @@ public class DamagePlayerAI : MonoBehaviour
 		// If the entering collider is the player...
 		if (other.gameObject == player)
 		{
-			Debug.Log("hi");
 			// ... the player is in range.
 			playerInRange = true;
 		}

@@ -12,7 +12,22 @@ ModelImporter:
   - first:
       74: 4781951162920444690
     second: Armature|ArmatureAction
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: brawn
+    second: {fileID: 2100000, guid: f14269cb32364824e8926c4a3c07950b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eye
+    second: {fileID: 2100000, guid: 7dad2aff9de3f4e4688ad4e7d80c9a09, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: white
+    second: {fileID: 2100000, guid: d975f8002465e064c83d6fb5daf52487, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

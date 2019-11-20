@@ -46,7 +46,7 @@ public class DialogueTrigger : MonoBehaviour
 	protected virtual void OnTriggerStay(Collider other)
 	{
 		//we can add another if statement here for a layer or tag of game objects you can talk to so we don't do component calls all the time
-		if (other.tag == "Player")
+		if (other.tag == "Player" && this.enabled)
 		{
 			PlayerMovement playerMovement = other.GetComponent<PlayerMovement>();
 			simplePlayerMovement sPlayerMovement = other.GetComponent<simplePlayerMovement>();
@@ -109,7 +109,7 @@ public class DialogueTrigger : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
 	{
 		//we can add another if statement here for a layer or tag of game objects you can talk to so we don't do component calls all the time
-		if (other.tag == "Player")
+		if (other.tag == "Player" && this.enabled)
 		{
 			dialogueManager.showHelperText();
 		}
@@ -118,7 +118,7 @@ public class DialogueTrigger : MonoBehaviour
 	protected virtual void OnTriggerExit(Collider other)
 	{
 		//we can add another if statement here for a layer or tag of game objects you can talk to so we don't do component calls all the time
-		if (other.tag == "Player")
+		if (other.tag == "Player" && this.enabled)
 		{
 			dialogueManager.hideHelperText();
 		}

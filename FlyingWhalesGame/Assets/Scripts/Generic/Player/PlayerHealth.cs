@@ -1,4 +1,5 @@
-﻿using GameManager;
+﻿using System.Collections;
+using GameManager;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -20,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
 	private bool isDead;
 	private int playerLives;
 	private AudioSource BGMSource;                                      // (by Sabin Kim) AudioSource of BGM GameObject
-
+	[SerializeField] private ParticleSystem particlesDeath;
 	public float Health { get { return currentHealth; } }
 	public float MaxHealth { get { return maxHealth; } }
 
@@ -65,6 +66,8 @@ public class PlayerHealth : MonoBehaviour
 		{
 			Debug.LogWarning("No death music found");
 		}
+
+		particlesDeath = GetComponentInChildren<ParticleSystem>();
 	}
 
 	public void AddHealth()
@@ -135,8 +138,7 @@ public class PlayerHealth : MonoBehaviour
 			playerAudio.clip = deathClip;
 			playerAudio.Play();
 		}
-
-		Destroy(gameObject, 4f);
+		StartCoroutine(DestroyPlayer());
 		playerMovement.enabled = false;
 		playerLives--;
 		if (playerLives >= 0)
@@ -147,6 +149,20 @@ public class PlayerHealth : MonoBehaviour
 		{
 			GameManager_Master.Instance.CallEventGameOver();
 		}
+	}
+
+
+	IEnumerator DestroyPlayer()
+	{
+		yield return new WaitForSeconds(2);
+		if (particlesDeath)
+		{
+			Debug.Log("player");
+			particlesDeath.transform.parent = null;
+			particlesDeath.Play();
+			Destroy(particlesDeath.gameObject, particlesDeath.main.duration);
+		}
+		Destroy(gameObject);
 	}
 
 
