@@ -49,3 +49,4 @@ MonoBehaviour:
   damageAudio: {fileID: 8300000, guid: fb680f9319895674e966240b4616c26d, type: 3}
   sheepAudio: {fileID: 8300000, guid: 341dae8cc6918234c80bfabe962ceb3f, type: 3}
   jumpAudio: {fileID: 8300000, guid: 7ae7d069809613845856cadc805f4cfc, type: 3}
+  playerAttackAudio: {fileID: 8300000, guid: caa93c29e0eff954d8c04a41b8fbb4bb, type: 3}

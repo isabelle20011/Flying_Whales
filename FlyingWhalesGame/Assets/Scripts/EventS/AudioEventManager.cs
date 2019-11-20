@@ -10,11 +10,13 @@ public class AudioEventManager : MonoBehaviour
 	public AudioClip damageAudio;
 	public AudioClip sheepAudio;
 	public AudioClip jumpAudio;
+	public AudioClip playerAttackAudio;
 
 	private UnityAction<Vector3> attackSoundEventListener;
 	private UnityAction<Vector3> damageSoundEventListener;
 	private UnityAction<Vector3> sheepSoundEventListener;
 	private UnityAction<Vector3> jumpSoundEventListener;
+	private UnityAction<Vector3> playerAttackSoundEventListener;
 
 	void Awake()
 	{
@@ -22,6 +24,7 @@ public class AudioEventManager : MonoBehaviour
 		damageSoundEventListener = new UnityAction<Vector3>(damageSoundEventHandler);
 		sheepSoundEventListener = new UnityAction<Vector3>(sheepSoundEventHandler);
 		jumpSoundEventListener = new UnityAction<Vector3>(jumpSoundEventHandler);
+		playerAttackSoundEventListener = new UnityAction<Vector3>(playerAttackSoundEventHandler);
 	}
 
 
@@ -37,15 +40,17 @@ public class AudioEventManager : MonoBehaviour
 		EventManager.StartListening<damageSoundEvent, Vector3>(damageSoundEventListener);
 		EventManager.StartListening<sheepSoundEvent, Vector3>(sheepSoundEventListener);
 		EventManager.StartListening<jumpSoundEvent, Vector3>(jumpSoundEventListener);
+		EventManager.StartListening<playerAttackSoundEvent, Vector3>(playerAttackSoundEventListener);
 
 	}
 
 	void OnDisable()
 	{
 		EventManager.StopListening<attackSoundEvent, Vector3>(attackSoundEventListener);
-		EventManager.StartListening<damageSoundEvent, Vector3>(damageSoundEventListener);
-		EventManager.StartListening<sheepSoundEvent, Vector3>(sheepSoundEventListener);
-		EventManager.StartListening<jumpSoundEvent, Vector3>(jumpSoundEventListener);
+		EventManager.StopListening<damageSoundEvent, Vector3>(damageSoundEventListener);
+		EventManager.StopListening<sheepSoundEvent, Vector3>(sheepSoundEventListener);
+		EventManager.StopListening<jumpSoundEvent, Vector3>(jumpSoundEventListener);
+		EventManager.StopListening<playerAttackSoundEvent, Vector3>(playerAttackSoundEventListener);
 	}
 
 	void attackSoundEventHandler(Vector3 pos)
@@ -107,6 +112,23 @@ public class AudioEventManager : MonoBehaviour
 			EventSound3D snd = Instantiate(eventSound3DPrefab, pos, Quaternion.identity, null);
 
 			snd.audioSrc.clip = this.jumpAudio;
+
+			snd.audioSrc.minDistance = 5f;
+			snd.audioSrc.maxDistance = 100f;
+
+			snd.audioSrc.Play();
+		}
+	}
+
+	void playerAttackSoundEventHandler(Vector3 pos)
+	{
+
+		if (playerAttackAudio)
+		{
+
+			EventSound3D snd = Instantiate(eventSound3DPrefab, pos, Quaternion.identity, null);
+
+			snd.audioSrc.clip = this.playerAttackAudio;
 
 			snd.audioSrc.minDistance = 5f;
 			snd.audioSrc.maxDistance = 100f;
