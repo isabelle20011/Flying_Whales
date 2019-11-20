@@ -3,10 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class DontDestroy : MonoBehaviour
 {
-    private AudioSource audioSource;
 	private void Awake()
 	{
-        audioSource = GetComponent<AudioSource>();
 		GameObject[] objs = GameObject.FindGameObjectsWithTag("BackgroundMusic");
 		if (objs.Length > 1)
 		{

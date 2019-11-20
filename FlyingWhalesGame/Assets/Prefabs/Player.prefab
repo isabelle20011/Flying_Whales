@@ -425,6 +425,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Whale
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: f42b0de89417af74897d363c8d3eb25d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f42b0de89417af74897d363c8d3eb25d,
         type: 3}
       propertyPath: m_LocalPosition.x
