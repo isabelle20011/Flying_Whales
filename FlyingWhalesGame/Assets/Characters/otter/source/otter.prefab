@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3907933072519375884}
   - component: {fileID: 6391108892319809910}
+  - component: {fileID: 18532166650072500}
   m_Layer: 0
   m_Name: otter
   m_TagString: Untagged
@@ -52,6 +53,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &18532166650072500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27194995493723679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 278a8a95529798448b5c7d023b39eebc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &837875548079332370
 GameObject:
   m_ObjectHideFlags: 0

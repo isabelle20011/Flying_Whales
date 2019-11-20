@@ -106,20 +106,23 @@ public class PlayerHealth : MonoBehaviour
 
 	public void TakeDamage()
 	{
-		currentHealth--;
-
-		ClampHealth();
-		if (currentHealth <= 0 && !isDead)
+		if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Damage"))
 		{
-			// ... it should die.
-			Death();
-		}
+			currentHealth--;
 
-		if (damageClip != null && !isDead)
-		{
-			playerAudio.clip = damageClip;
-			playerAudio.Play();
-			anim.SetTrigger("Damage");
+			ClampHealth();
+			if (currentHealth <= 0 && !isDead)
+			{
+				// ... it should die.
+				Death();
+			}
+
+			if (damageClip != null && !isDead)
+			{
+				playerAudio.clip = damageClip;
+				playerAudio.Play();
+				anim.SetTrigger("Damage");
+			}
 		}
 	}
 
