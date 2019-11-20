@@ -1210,6 +1210,18 @@ PrefabInstance:
       objectReference: {fileID: 415141731}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 415e09460d035f6439c85093ea308790, type: 3}
+--- !u!114 &450093277 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9205734765096478571, guid: 415e09460d035f6439c85093ea308790,
+    type: 3}
+  m_PrefabInstance: {fileID: 450093276}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e70a8a0a9dfba4b8012e10578e584f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &471790011
 GameObject:
   m_ObjectHideFlags: 0
@@ -4202,6 +4214,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 943756279558851671, guid: 036874a2ab7241c4bb5391db43309e23,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 450093277}
+    - target: {fileID: 943756279558851671, guid: 036874a2ab7241c4bb5391db43309e23,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CallQuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 943756279874210020, guid: 036874a2ab7241c4bb5391db43309e23,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 450093277}
+    - target: {fileID: 943756279874210020, guid: 036874a2ab7241c4bb5391db43309e23,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CallEventGoToMenuScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 943756279993301816, guid: 036874a2ab7241c4bb5391db43309e23,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 450093277}
+    - target: {fileID: 943756279993301816, guid: 036874a2ab7241c4bb5391db43309e23,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CallEventRestartLevel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 036874a2ab7241c4bb5391db43309e23, type: 3}
