@@ -1737,14 +1737,13 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: "\t      FLYING WHALES\n\n\tProject Lead\n\t\tIsabelle Steffens\n\t\n\tLevel
-    Design\n\t\tSabin Kim\n\t\tJackson Leone\n\t\tIsabelle Steffens\n\n\tProgrammer\n\t\tDaniel
-    Otaigbe\n\t\tCole Cunningham\n\t\tIsabelle Steffens\n\n\tAI Programmer\n\t\tSean
-    Joplin\n\t\tIsabelle Steffens\n\n\tUI Programmer\n\t\tSabin Kim\n\t\tIsabelle
-    Steffens\n\n\t3D Animation\n\t\tKyle Perras\n\t\tIsabelle Steffens\n\n\tComposer\n\t\tSabin
-    Kim\n\n\tSounds Effects\n\t\tSabin Kim\n\t\tBaptiste Chiocca\n\t\tIsabelle Steffens\n\n\t3D
-    Artist\n\t\tSabin Kim\n\t\tIsabelle Steffens\n\n\t2D Artist\n\t\tIsabella Silva\n\n\tA
-    special thanks to\n\t\tGavin Shapiro\n\n\tVGDev Fall 2019\n\tThank you so much
-    for playing!"
+    Design\n\t\tSabin Kim\n\t\tIsabelle Steffens\n\n\tProgrammer\n\t\tDaniel Otaigbe\n\t\tCole
+    Cunningham\n\t\tIsabelle Steffens\n\n\tAI Programmer\n\t\tSean Joplin\n\t\tIsabelle
+    Steffens\n\n\tUI Programmer\n\t\tSabin Kim\n\t\tIsabelle Steffens\n\n\t3D Animation\n\t\tKyle
+    Perras\n\t\tIsabelle Steffens\n\n\tComposer\n\t\tSabin Kim\n\n\tSounds Effects\n\t\tSabin
+    Kim\n\t\tBaptiste Chiocca\n\t\tIsabelle Steffens\n\n\t3D Artist\n\t\tSabin Kim\n\t\tIsabelle
+    Steffens\n\t\tJackson Leone\n\n\t2D Artist\n\t\tIsabella Silva\n\n\tA special
+    thanks to\n\t\tGavin Shapiro\n\n\tVGDev Fall 2019\n\tThank you so much for playing!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7f6fcdff4f46075478ba267363f93a75, type: 2}
   m_sharedMaterial: {fileID: -8088437368413360699, guid: 7f6fcdff4f46075478ba267363f93a75,
