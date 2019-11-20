@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2300000}
   - component: {fileID: 6400000}
   - component: {fileID: 1951267004}
-  - component: {fileID: 581565585}
+  - component: {fileID: 4155052583500689237}
   m_Layer: 0
   m_Name: Cactus_Short_01
   m_TagString: Untagged
@@ -110,8 +110,8 @@ MonoBehaviour:
   timeBetweenAttacks: 1.1
   KillOnTouch: 0
   DestroyAfterDamage: 0
---- !u!136 &581565585
-CapsuleCollider:
+--- !u!65 &4155052583500689237
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -120,7 +120,6 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.28461808
-  m_Height: 0.74304515
-  m_Direction: 1
-  m_Center: {x: -0.057660274, y: 0.37104356, z: -0.031580962}
+  serializedVersion: 2
+  m_Size: {x: 0.52087593, y: 0.7430449, z: 0.5412669}
+  m_Center: {x: -0.057386, y: 0.37104347, z: -0.03158002}
