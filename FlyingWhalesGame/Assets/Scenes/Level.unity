@@ -4033,7 +4033,7 @@ PrefabInstance:
     - target: {fileID: 7313077016848200462, guid: 6aae7c51b3f0b444596c0a3335d0ec8a,
         type: 3}
       propertyPath: dialogue.sentences.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7313077016848200462, guid: 6aae7c51b3f0b444596c0a3335d0ec8a,
         type: 3}
@@ -4053,7 +4053,7 @@ PrefabInstance:
     - target: {fileID: 7313077016848200462, guid: 6aae7c51b3f0b444596c0a3335d0ec8a,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[3]
-      value: 
+      value: Go talk with momma otter she will help you next
       objectReference: {fileID: 0}
     - target: {fileID: 7313077016848200462, guid: 6aae7c51b3f0b444596c0a3335d0ec8a,
         type: 3}
