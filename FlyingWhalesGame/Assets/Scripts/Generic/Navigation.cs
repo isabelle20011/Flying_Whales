@@ -76,7 +76,7 @@ public class Navigation : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (!player)
+		if (!player || !agent.enabled)
 			return;
 
 		//If the player gets too close, attack!
