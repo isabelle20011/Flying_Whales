@@ -18,8 +18,10 @@ namespace GameManager
 			{
 				Debug.LogWarning("missing UI reference");
 			}
-
-			canvas.SetActive(true);
+			if (canvas)
+			{
+				canvas.SetActive(true);
+			}
 		}
 
 		private void OnDisable()

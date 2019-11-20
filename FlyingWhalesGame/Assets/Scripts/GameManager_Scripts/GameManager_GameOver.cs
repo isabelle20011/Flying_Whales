@@ -10,7 +10,10 @@ namespace GameManager
 		private void OnEnable()
 		{
 			GameManager_Master.Instance.GameOverEvent += GameOver;
-			DontDestroyOnLoad(panelGameOver);
+			if (panelGameOver)
+			{
+				DontDestroyOnLoad(panelGameOver);
+			}
 		}
 
 		private void OnDisable()
@@ -29,7 +32,10 @@ namespace GameManager
 		IEnumerator GameOverPanel()
 		{
 			yield return new WaitForSeconds(4f);
-			panelGameOver.SetActive(true);
+			if (panelGameOver)
+			{
+				panelGameOver.SetActive(true);
+			}
 		}
 	}
 }
