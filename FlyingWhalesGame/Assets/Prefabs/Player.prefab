@@ -88,8 +88,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 15
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -177,8 +177,8 @@ MonoBehaviour:
   walkingSpeed: 8
   sprintingSpeed: 15
   turnSpeed: 200
-  jumpHeight: 10
-  gravityScale: 10
+  jumpHeight: 15
+  gravityScale: 5
   DashDistance: 10
   Drag: {x: 5, y: 0, z: 5}
   m_Jump: 0
@@ -217,7 +217,6 @@ MonoBehaviour:
   deathClip: {fileID: 8300000, guid: 9327ba449f593a549838fab7db2cbc65, type: 3}
   damageClip: {fileID: 8300000, guid: 75c0e9677edf48549a9f8d06267949ab, type: 3}
   healingClip: {fileID: 8300000, guid: 62244b5fcc6e84745a59f35ad30bf637, type: 3}
-  BGM: {fileID: 0}
 --- !u!82 &7075038286147914490
 AudioSource:
   m_ObjectHideFlags: 0

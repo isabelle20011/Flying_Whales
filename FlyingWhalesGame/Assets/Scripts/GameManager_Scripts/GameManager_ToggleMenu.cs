@@ -10,7 +10,6 @@ namespace GameManager
 
 		private void OnEnable()
 		{
-			//ToggleMenu();
 			DontDestroyOnLoad(menu);
 			Time.timeScale = 1;
 			GameManager_Master.Instance.MenuToggleEvent += ToggleMenu;

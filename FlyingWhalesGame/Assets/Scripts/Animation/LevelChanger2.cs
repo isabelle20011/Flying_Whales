@@ -5,6 +5,7 @@ public class LevelChanger2 : MonoBehaviour
 {
 	private Animator animator;
 	[SerializeField] private bool NeedForSeconds;
+	[SerializeField] private string levelName;
 
 	private void OnEnable()
 	{
@@ -25,7 +26,14 @@ public class LevelChanger2 : MonoBehaviour
 		}
 		else
 		{
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+			if (levelName != "")
+			{
+				SceneManager.LoadScene(levelName);
+			}
+			else
+			{
+				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+			}
 		}
 	}
 

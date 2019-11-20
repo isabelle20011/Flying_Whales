@@ -20,7 +20,11 @@ namespace GameManager
 
 		private void SetInitialReferences()
 		{
-			playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+			GameObject player = GameObject.FindGameObjectWithTag("Player");
+			if (player)
+			{
+				playerController = player.GetComponent<PlayerMovement>();
+			}
 		}
 
 		private void TogglePlayerController()
