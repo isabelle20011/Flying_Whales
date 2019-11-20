@@ -1426,6 +1426,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92e70a8a0a9dfba4b8012e10578e584f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1353956725
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6271594216462825019, guid: c893167e823ed874f9e267525483446a,
+        type: 3}
+      propertyPath: m_Name
+      value: LevelChanger
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271594216462825021, guid: c893167e823ed874f9e267525483446a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271594216462825021, guid: c893167e823ed874f9e267525483446a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271594216462825021, guid: c893167e823ed874f9e267525483446a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271594216462825021, guid: c893167e823ed874f9e267525483446a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271594216462825021, guid: c893167e823ed874f9e267525483446a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271594216462825021, guid: c893167e823ed874f9e267525483446a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271594216462825021, guid: c893167e823ed874f9e267525483446a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271594216462825021, guid: c893167e823ed874f9e267525483446a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271594216462825021, guid: c893167e823ed874f9e267525483446a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271594216462825021, guid: c893167e823ed874f9e267525483446a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271594216462825021, guid: c893167e823ed874f9e267525483446a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c893167e823ed874f9e267525483446a, type: 3}
 --- !u!1001 &1447841726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1442,6 +1511,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: MainCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975189445986365354, guid: e6761afb921ea4047955ff1d6671b869,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8975189445986365355, guid: e6761afb921ea4047955ff1d6671b869,
         type: 3}
@@ -1527,11 +1601,6 @@ PrefabInstance:
         type: 3}
       propertyPath: b_smmoth
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8975189445986365354, guid: e6761afb921ea4047955ff1d6671b869,
-        type: 3}
-      propertyPath: m_ClearFlags
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8975189445986365348, guid: e6761afb921ea4047955ff1d6671b869, type: 3}
@@ -1667,8 +1736,15 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "\t      FLYING WHALES\n\n\tname 0\n\tname 1\n\tname 2\n\tname 3\n\tname
-    4\n\tname 5\n\n\tVGDev Fall 2019\n\tThank you so much for playing!"
+  m_text: "\t      FLYING WHALES\n\n\tProject Lead\n\t\tIsabelle Steffens\n\t\n\tLevel
+    Design\n\t\tSabin Kim\n\t\tJackson Leone\n\t\tIsabelle Steffens\n\n\tProgrammer\n\t\tDaniel
+    Otaigbe\n\t\tCole Cunningham\n\t\tIsabelle Steffens\n\n\tAI Programmer\n\t\tSean
+    Joplin\n\t\tIsabelle Steffens\n\n\tUI Programmer\n\t\tSabin Kim\n\t\tIsabelle
+    Steffens\n\n\t3D Animation\n\t\tKyle Perras\n\t\tIsabelle Steffens\n\n\tComposer\n\t\tSabin
+    Kim\n\n\tSounds Effects\n\t\tSabin Kim\n\t\tBaptiste Chiocca\n\t\tIsabelle Steffens\n\n\t3D
+    Artist\n\t\tSabin Kim\n\t\tIsabelle Steffens\n\n\t2D Artist\n\t\tIsabella Silva\n\n\tA
+    special thanks to\n\t\tGavin Shapiro\n\n\tVGDev Fall 2019\n\tThank you so much
+    for playing!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7f6fcdff4f46075478ba267363f93a75, type: 2}
   m_sharedMaterial: {fileID: -8088437368413360699, guid: 7f6fcdff4f46075478ba267363f93a75,
@@ -1697,8 +1773,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 72
-  m_fontSizeBase: 72
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1714,7 +1790,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 54
+  m_firstOverflowCharacterIndex: 72
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -1738,12 +1814,12 @@ MonoBehaviour:
   m_margin: {x: -566.5281, y: -93.56671, z: -336.47046, w: 0}
   m_textInfo:
     textComponent: {fileID: 1516489149}
-    characterCount: 119
+    characterCount: 586
     spriteCount: 0
-    spaceCount: 39
-    wordCount: 24
+    spaceCount: 149
+    wordCount: 76
     linkCount: 0
-    lineCount: 11
+    lineCount: 47
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
