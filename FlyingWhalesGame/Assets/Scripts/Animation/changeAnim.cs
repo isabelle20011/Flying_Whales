@@ -6,4 +6,9 @@ public class changeAnim : MonoBehaviour
 	{
 		EventManager.TriggerEvent<jumpSoundEvent, Vector3>(transform.position);
 	}
+
+	public void ExecuteAttackSound()
+	{
+		EventManager.TriggerEvent<playerAttackSoundEvent, Vector3>(transform.position);
+	}
 }

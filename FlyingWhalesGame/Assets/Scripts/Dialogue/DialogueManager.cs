@@ -85,7 +85,6 @@ public class DialogueManager : MonoBehaviour
 		cameraScript.b_offsetPositionDialog = false;
 		cameraScript.f_transitionTime = cameraScript.f_transitionTimeFinal;
 		dialogueBox.gameObject.SetActive(false);
-		trigger.OnTriggerEnd();
 		Debug.Log("End of conversation.");
 
 		PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
@@ -101,6 +100,7 @@ public class DialogueManager : MonoBehaviour
 				sPlayerMovement.enabled = true;
 			}
 		}
+		trigger.OnTriggerEnd();
 		SetTrigger(null);
 	}
 

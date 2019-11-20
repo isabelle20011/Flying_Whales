@@ -3,10 +3,11 @@ using UnityEngine;
 
 public class CountdownTimer : MonoBehaviour
 {
-	private float currTime = 0f;
-	private bool b_countdown = false;
-	[SerializeField] private readonly float startTime = 10f;
-	[SerializeField] private readonly TextMeshProUGUI countdown;
+	[HideInInspector] public float currTime = 0f;
+	[HideInInspector] public bool b_countdown = false;
+	[SerializeField] private float startTime = 40f;
+	[SerializeField] public TextMeshProUGUI countdown;
+	[HideInInspector] public int fruitPicked = 0;
 
 
 	private void Start()
@@ -14,13 +15,10 @@ public class CountdownTimer : MonoBehaviour
 		currTime = startTime;
 	}
 
-	private void OnTriggerEnter(Collider other)
+	public void StartCountDown()
 	{
-		if (other.CompareTag("Player"))
-		{
-			countdown.gameObject.SetActive(true);
-			b_countdown = true;
-		}
+		countdown.gameObject.SetActive(true);
+		b_countdown = true;
 	}
 
 	private void Update()
@@ -35,8 +33,8 @@ public class CountdownTimer : MonoBehaviour
 				currTime = 0;
 				countdown.gameObject.SetActive(false);
 				currTime = startTime;
+				b_countdown = false;
 			}
-
 		}
 	}
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class DialogueTriggerImmediately : DialogueTrigger
 {
 	public bool shouldStart;
+	public bool notMom;
 	private bool called;
 	private Collider[] colliders;
 	// Start is called before the first frame update
@@ -13,11 +14,14 @@ public class DialogueTriggerImmediately : DialogueTrigger
 	{
 		base.Start();
 		colliders = GetComponents<Collider>();
-		shouldStart = !GameManager_Master.Instance.momWasCalled;
+		if (!notMom)
+		{
+			shouldStart = !GameManager_Master.Instance.momWasCalled;
+		}
 	}
 	protected override void OnTriggerStay(Collider other)
 	{
-		if (other.tag == "Player" && shouldStart)
+		if (other.tag == "Player" && shouldStart && this.enabled)
 		{
 			PlayerMovement playerMovement = other.GetComponent<PlayerMovement>();
 			simplePlayerMovement sPlayerMovement = other.GetComponent<simplePlayerMovement>();

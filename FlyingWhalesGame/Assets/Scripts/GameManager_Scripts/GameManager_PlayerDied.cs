@@ -7,7 +7,7 @@ namespace GameManager
 	public class GameManager_PlayerDied : MonoBehaviour
 	{
 		[HideInInspector] public GameObject canvas;
-		public TextMeshProUGUI LivesUI;
+		[HideInInspector] public TextMeshProUGUI LivesUI;
 
 		private void OnEnable()
 		{
