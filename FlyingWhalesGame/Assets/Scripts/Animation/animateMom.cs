@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class animateMom : MonoBehaviour
@@ -14,7 +13,7 @@ public class animateMom : MonoBehaviour
 
 	// Update is called once per frame
 	void Update()
-    {
+	{
 		if (!b_started && !animator.GetCurrentAnimatorStateInfo(0).IsName("Turn Head"))
 		{
 			StartCoroutine(waitSeconds());

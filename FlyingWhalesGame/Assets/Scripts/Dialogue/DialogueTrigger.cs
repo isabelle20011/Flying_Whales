@@ -1,11 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 //Made by Daniel Otaigbe
 public class DialogueTrigger : MonoBehaviour
 {
-    public Dialogue dialogue;
+	public Dialogue dialogue;
 	protected DialogueManager dialogueManager;
 	protected bool wasCalledThisFrame = false;
 	public int doSomething = -1;
@@ -23,16 +22,16 @@ public class DialogueTrigger : MonoBehaviour
 	}
 
 	protected virtual void Start()
-    {
-        dialogueManager = FindObjectOfType<DialogueManager>();
-    }
+	{
+		dialogueManager = FindObjectOfType<DialogueManager>();
+	}
 
-    public virtual void TriggerDialogue()
-    {
+	public virtual void TriggerDialogue()
+	{
 		//finds the dialogue manager and feeds it our dialogue object with the name and sentences so we can put it on the screen!
 		dialogueManager.SetTrigger(this);
-        dialogueManager.StartDialogue(dialogue);
-    }
+		dialogueManager.StartDialogue(dialogue);
+	}
 
 	public virtual void OnTriggerEnd()
 	{
@@ -45,10 +44,10 @@ public class DialogueTrigger : MonoBehaviour
 	}
 
 	protected virtual void OnTriggerStay(Collider other)
-    {
-        //we can add another if statement here for a layer or tag of game objects you can talk to so we don't do component calls all the time
-        if (other.tag == "Player")
-        {
+	{
+		//we can add another if statement here for a layer or tag of game objects you can talk to so we don't do component calls all the time
+		if (other.tag == "Player")
+		{
 			PlayerMovement playerMovement = other.GetComponent<PlayerMovement>();
 			simplePlayerMovement sPlayerMovement = other.GetComponent<simplePlayerMovement>();
 			if (playerMovement || sPlayerMovement)
@@ -82,7 +81,7 @@ public class DialogueTrigger : MonoBehaviour
 				if (dialogueManager.inConvo)
 				{
 					Vector3 targetDir = this.transform.position - other.transform.position;
-					Vector3 targetDir2 =  other.transform.position - this.transform.position;
+					Vector3 targetDir2 = other.transform.position - this.transform.position;
 
 					// The step size is equal to speed times frame time.
 					float step = 2 * Time.deltaTime;
@@ -98,8 +97,8 @@ public class DialogueTrigger : MonoBehaviour
 					this.transform.rotation = Quaternion.LookRotation(newDir2);
 				}
 			}
-        }
-    }
+		}
+	}
 
 	IEnumerator waitDialogue()
 	{
