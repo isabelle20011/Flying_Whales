@@ -25,6 +25,7 @@ public class LevelEnd : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
+			BGM = GameObject.FindGameObjectWithTag("BackgroundMusic").GetComponent<AudioSource>();
 			Debug.Log("Entered");
 			BGM.Stop();
 			EndSound.Play();
