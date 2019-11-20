@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
 	private bool isDead;
 	private int playerLives;
 	private AudioSource BGMSource;                                      // (by Sabin Kim) AudioSource of BGM GameObject
-	[SerializeField] private ParticleSystem particlesDeath;
+	private ParticleSystem particlesDeath;
 	public float Health { get { return currentHealth; } }
 	public float MaxHealth { get { return maxHealth; } }
 
@@ -137,6 +137,11 @@ public class PlayerHealth : MonoBehaviour
 
 		if (deathClip != null)
 		{
+			BGM = GameObject.FindGameObjectWithTag("BackgroundMusic");
+			if (BGM)
+			{
+				BGMSource = BGM.GetComponent<AudioSource>();
+			}
 			BGMSource.Stop();               // (by Sabin Kim) when Whale dies, stop level BGM
 			playerAudio.clip = deathClip;
 			playerAudio.Play();
